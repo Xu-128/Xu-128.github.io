@@ -16,15 +16,15 @@
   <meta name="author" content="__Xu128">
   <meta name="keywords" content="">
   
-    <meta name="description" content="反演浅谈  定义如果有离散函数 $f$ 能推导出 离散函数 $g$，则称这个过程为“演绎”，如果我们知道了演绎的过程，想通过 $g$ 推出 $f$，这个过程通常称作“反演”。 如果两函数没有特殊性质，反演只能通过高斯消元求解，但是如果函数之间满足某种特定关系，则可以使用某些特定方式进行求解。 二项式反演形式 g_n&#x3D;\sum_{i&#x3D;0}^n\binom{n}{i}f_i\iff f_n&#x3D;\sum">
+    <meta name="description" content="反演浅谈定义如果有离散函数 $f$ 能推导出 离散函数 $g$，则称这个过程为“演绎”，如果我们知道了演绎的过程，想通过 $g$ 推出 $f$，这个过程通常称作“反演”。 如果两函数没有特殊性质，反演只能通过高斯消元求解，但是如果函数之间满足某种特定关系，则可以使用某些特定方式进行求解。 二项式反演形式 g_n&#x3D;\sum_{i&#x3D;0}^n\binom{n}{i}f_i\iff f_n&#x3D;\sum_">
 <meta property="og:type" content="article">
 <meta property="og:title" content="反演浅谈">
 <meta property="og:url" content="http://example.com/2022/02/27/%E5%8F%8D%E6%BC%94/index.html">
 <meta property="og:site_name" content="__Xu128 &#39;s Blog">
-<meta property="og:description" content="反演浅谈  定义如果有离散函数 $f$ 能推导出 离散函数 $g$，则称这个过程为“演绎”，如果我们知道了演绎的过程，想通过 $g$ 推出 $f$，这个过程通常称作“反演”。 如果两函数没有特殊性质，反演只能通过高斯消元求解，但是如果函数之间满足某种特定关系，则可以使用某些特定方式进行求解。 二项式反演形式 g_n&#x3D;\sum_{i&#x3D;0}^n\binom{n}{i}f_i\iff f_n&#x3D;\sum">
+<meta property="og:description" content="反演浅谈定义如果有离散函数 $f$ 能推导出 离散函数 $g$，则称这个过程为“演绎”，如果我们知道了演绎的过程，想通过 $g$ 推出 $f$，这个过程通常称作“反演”。 如果两函数没有特殊性质，反演只能通过高斯消元求解，但是如果函数之间满足某种特定关系，则可以使用某些特定方式进行求解。 二项式反演形式 g_n&#x3D;\sum_{i&#x3D;0}^n\binom{n}{i}f_i\iff f_n&#x3D;\sum_">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-02-27T10:23:08.000Z">
-<meta property="article:modified_time" content="2022-02-28T02:59:57.041Z">
+<meta property="article:modified_time" content="2022-02-28T03:05:42.056Z">
 <meta property="article:author" content="__Xu128">
 <meta property="article:tag" content="数论">
 <meta name="twitter:card" content="summary_large_image">
@@ -67,7 +67,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":100,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":100,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -257,9 +257,8 @@
             <div class="markdown-body">
               
               <!-- <font size=6><center><b>反演浅谈</b></center></font> -->
-<h1 style="border-style:none;text-align:center;">反演浅谈</h1>
-
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>如果有离散函数 $f$ 能推导出 离散函数 $g$，则称这个过程为“演绎”，如果我们知道了演绎的过程，想通过 $g$ 推出 $f$，这个过程通常称作“反演”。</p>
+<!-- <h1 style="border-style:none;text-align:center;">反演浅谈</h1> -->
+<h1 id="反演浅谈"><a href="#反演浅谈" class="headerlink" title="反演浅谈"></a>反演浅谈</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>如果有离散函数 $f$ 能推导出 离散函数 $g$，则称这个过程为“演绎”，如果我们知道了演绎的过程，想通过 $g$ 推出 $f$，这个过程通常称作“反演”。</p>
 <p>如果两函数没有特殊性质，反演只能通过高斯消元求解，但是如果函数之间满足某种特定关系，则可以使用某些特定方式进行求解。</p>
 <h2 id="二项式反演"><a href="#二项式反演" class="headerlink" title="二项式反演"></a>二项式反演</h2><h3 id="形式"><a href="#形式" class="headerlink" title="形式"></a>形式</h3><script type="math/tex; mode=display">
 g_n=\sum_{i=0}^n\binom{n}{i}f_i\iff f_n=\sum_{i=0  }^n(-1)^{n-i}\binom{n}{i}g_i</script><p>左边为演绎过程，右边为反演过程。</p>
@@ -714,6 +713,7 @@ f*I*\mu=g*\mu\Rightarrow f=g*\mu</script><p>若 $g$ 有简洁的通项公式，�
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
+<script>var a=document.getElementsByTagName("h1");for(var i=0;i<a.length;++i)if(a[i].parentNode.className.indexOf("markdown-body")>-1)a[i].style.borderStyle="none",a[i].style.textAlign="center";</script>
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script> -->
 
