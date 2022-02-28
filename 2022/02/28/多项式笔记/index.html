@@ -24,9 +24,9 @@
 <meta property="og:description" content="多项式笔记定义定义 $n$ 次多项式 $f(x)&#x3D;\sum_{i&#x3D;0}^na_ix^i$，称其最高项系数的次数为该多项式的度，记作 $\deg f$。 运算定义如下多项式  f(x)&#x3D;\sum_{i&#x3D;0}^na_ix^i\\ g(x)&#x3D;\sum_{i&#x3D;0}^nb_ix^i\\加法 f(x)+f(y)&#x3D;\sum_{i&#x3D;0}^n(a_i+b_i)x^i减法 f(x)-f(y)&#x3D;\sum_{i&#x3D;0}^n">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-02-28T07:21:47.000Z">
-<meta property="article:modified_time" content="2022-02-28T08:16:28.459Z">
+<meta property="article:modified_time" content="2022-02-28T13:01:17.103Z">
 <meta property="article:author" content="__Xu128">
-<meta property="article:tag" content="数论">
+<meta property="article:tag" content="数学">
 <meta property="article:tag" content="多项式">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -271,7 +271,7 @@ f(x)=Q(x)g(x)+R(x)\\
 <script type="math/tex; mode=display">
 f(x)\equiv R(x)(mod~g(x))</script><h2 id="朗格拉日插值"><a href="#朗格拉日插值" class="headerlink" title="朗格拉日插值"></a>朗格拉日插值</h2><p>有初中数学可以知道，如果给定平面上的 $n$ 个点，则可以唯一确定一个 $n-1$ 次的多项式（如两点确定一个一次多项式，三点确定一个二次多项式），如果要求出该多项式每一项的系数，可以使用高斯消元法， 时间复杂度为 $O(n^3)$，时间复杂度过高。</p>
 <p>朗格拉日插值法使用构造的方式在 $O(n^2)$ 求解多项式系数。</p>
-<p>首先构造 $n$ 个函数，其中第 $i$ 个函数 $f_i(x)$ 满足<br>$<br>f_i(x)=\begin{cases}<br>0&amp; (x\not=x_i)\\<br>y_i&amp; (x= x_i)<br>\end{cases}<br>$</p>
+<p>首先构造 $n$ 个函数，其中第 $i$ 个函数 $f_i(x)$ 满足<br>$<br>f_i(x)=\begin{cases}<br>0&amp; (x\not=x_i)\\<br>y_i&amp; (x= x_i)<br>\end{cases}<br>$  </p>
 <p>最后要求的多项式 $f(x)=\sum_{i=1}^nf_i(x)$。<br>可以设</p>
 <script type="math/tex; mode=display">
 f_i(x)=a\cdot\prod_{j\not=i}(x-x_j)</script><p>将 $f_i(x_i)=y_i$ 代入得到</p>
@@ -296,7 +296,7 @@ var a=document.getElementsByTagName("h1");for(var i=0;i<a.length;++i)if(a[i].par
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%95%B0%E8%AE%BA/" class="category-chain-item">数论</a>
+  <a href="/categories/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
   
   
 
@@ -311,7 +311,7 @@ var a=document.getElementsByTagName("h1");for(var i=0;i<a.length;++i)if(a[i].par
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%95%B0%E8%AE%BA/">#数论</a>
+        <a href="/tags/%E6%95%B0%E5%AD%A6/">#数学</a>
       
         <a href="/tags/%E5%A4%9A%E9%A1%B9%E5%BC%8F/">#多项式</a>
       
