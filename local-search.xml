@@ -33,8 +33,14 @@
     <link href="/2022/02/27/%E5%BC%80%E7%AB%AF/"/>
     <url>/2022/02/27/%E5%BC%80%E7%AB%AF/</url>
     
-    <content type="html"><![CDATA[<p>2022-02-27：__Xu128’s Blog 搭建完成！</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="开端"><a href="#开端" class="headerlink" title="开端"></a>开端</h1><p>2022-02-27：__Xu128’s Blog 搭建完成！</p><script>var a=document.getElementsByTagName("h1");for(var i=0;i<a.length;++i)if(a[i].parentNode.className.indexOf("markdown-body")>-1)document.getElementById("subtitle").title=a[i].innerHTML,a[i].parentNode.removeChild(a[i]);</script>]]></content>
     
+    
+    <categories>
+      
+      <category>开端</category>
+      
+    </categories>
     
     
   </entry>
