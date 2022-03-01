@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>博弈论入门</title>
+    <link href="/2022/03/01/%E7%AE%80%E5%8D%95%E5%8D%9A%E5%BC%88%E8%AE%BA/"/>
+    <url>/2022/03/01/%E7%AE%80%E5%8D%95%E5%8D%9A%E5%BC%88%E8%AE%BA/</url>
+    
+    <content type="html"><![CDATA[<h1 id="博弈论入门"><a href="#博弈论入门" class="headerlink" title="博弈论入门"></a>博弈论入门</h1><h2 id="公平组合游戏"><a href="#公平组合游戏" class="headerlink" title="公平组合游戏"></a>公平组合游戏</h2><p>公平组合游戏是指满足以下性质的游戏：</p><ul><li>游戏有且仅有两人，轮流操作。</li><li>双方在任意时刻的决策集合仅和时刻的状态有关，和决策者无关。</li></ul><h2 id="Nim-游戏"><a href="#Nim-游戏" class="headerlink" title="Nim 游戏"></a>Nim 游戏</h2><p>有 $n$ 堆石子，第 $i$ 堆石子有 $a_i$ 个。两名玩家轮流取走某一堆的若干个石子，可以取完但是不能不取，最后不能取石子的玩家判负，问先手是否有必胜策略。</p><h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>若 $a_1\oplus a_2\oplus \cdots\oplus a_n\not ={0}$ 先手必胜，否则先手必败。</p><h3 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h3><p>若存在一个局面的异或和不为 $0$，设当前异或和二进制表示下最高位的位数为 $k$，根据异或定义，一定有奇数个数在二进制的 $k$ 位上值为 $1$，所以一定存在一个 $a_i&gt;2^k$，可以从第 $i$ 堆里拿出 $a_i-2^k$ 个石子使得异或和为 $0$。</p><p>若当前局面异或和为 $0$，则一定不存在一种方案使得取完石子后异或和仍未零。可以使用反证法。设</p><script type="math/tex; mode=display">a_1\oplus\cdots\oplus a_i\oplus\cdots\oplus a_n = 0</script><p>若命题不成立，则可以在 $a_i$ 中取 $k$ 个石子使得异或和仍未零，则会有</p><script type="math/tex; mode=display">a_1\oplus\cdots\oplus (a_i - k)\oplus\cdots\oplus a_n = a_1\oplus\cdots\oplus a_i\oplus\cdots\oplus a_n = 0</script><p>根据异或的性质可以把无关项消掉，得到</p><script type="math/tex; mode=display">a_i=a_i-k\Rightarrow k=0</script><p>这与不取石子的规则相违背，故原命题成立。</p><h2 id="SG-函数"><a href="#SG-函数" class="headerlink" title="SG 函数"></a>SG 函数</h2><p>考虑到公平组合游戏千差万别，对于每一种游戏都想出一个类似于 Nim 游戏的精巧证明并不容易，所以我们引入了 SG 函数。</p><h3 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h3><p>首先举一个 Nim 游戏的例子。有四堆石子 $1,2,3,7$。考虑将母问题拆分成四个子问题。</p><p>对于第一堆石子，只能取 $1$ 个把它变成 $0$ 从而使得后手必败，我们称这种状态为 <b>一级胜态</b>，第二堆石子只能变成 $0,1$，称其为 <b>二级胜态</b>，以此类推可以得到 $n$ 个石子为 <b>$n$ 级胜态</b>。特别的，将 <b>$0$</b> 称作 <b>终态</b>，终态不可继续操作。</p><p>然后定义一个胜态为 $n$ 级胜态，当其可以变为 $[1,n-1]$ 中的所有等级胜态时。同时定义 $\operatorname{mex}$ 函数为找出一个非负整数集合里<b>未出现过</b>的<b>最小</b>非负整数值。</p><p>然后我们考虑给这个类似于函数的<b>胜态级别</b>取一个高端大气的名字…就叫 $SG$ 函数吧！</p><h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><!-- 对于任何一个母问题，都可以将其转化为两部分子问题。设母问题为 $X$，其可以分为 $A$ 和 $B$ 两个子问题。- 如果 $A$ 和 $B$ 均为先手必败的局面，此时无论先手如何操作都只能将局面变为一个先手必胜一个先手必败的局面（类比 Nim 游戏）。此时后手只需将必胜局面变为必败局面就可以将问题变回原样，直至 $A$ 和 $B$ 都为终态为止。所以此时先手必败。- 如果 $A$ 为先手必败，$B$ 为先手必胜，此时先手只需将 $B$ 变成先手必败状态，即可让后手进入第一种情况，所以此时先手必胜。- 如果 $A$ 和 $B$ 均为先手必胜，先手一定不能将局面转化为第二种情况，否则必败。所以在这种情况时，我们需要知道关于 $A$ 和 $B$ 更加详细的信息才能得知结果。 --><p>首先根据定义我们有</p><script type="math/tex; mode=display">SG(A)=\operatorname{mex}(SG(B)|A\rightarrow B)</script><p>然后定义一种运算 $@$ 表示将两个子问题合在一起，由基本事实可以得到：</p><ul><li>$SG(A@B@C)=SG(A@(B@C))$</li><li>$SG(A @ 0)=SG(A)$，因为一个空的子问题对答案没有影响。</li><li>$SG(A@A)=0$，因为两个相同的子问题无论先手如何操作后手都可以复制，所以先手必败。</li></ul><p>根据观察可以发现 $@$ 这种运算和 $\oplus$ 很相似，接下来我们将通过严谨的证明来说明 $@$ 和 $\oplus$ 是等价的。</p><p>由定义可知</p><script type="math/tex; mode=display">SG(A@B)=\operatorname{mex}(\{SG(C)|A\rightarrow C\}\{SG(D)|B\rightarrow D\})</script><p>如果要证明 $@\Leftrightarrow\oplus$，只需证明</p><ol><li>$SG(A)\oplus SG(B)\not\in\{\{SG(A)\oplus SG(C)|B\rightarrow C\}\cup\{SG(D)\oplus SG(B)|A\rightarrow D\}\}$</li><li>$\forall E &lt; SA(A)\oplus SG(B)$，都有 $E\in \{\{SG(A)\oplus SG(C)|B\rightarrow C\}\cup\{SG(D)\oplus SG(B)|A\rightarrow D\}\}$。</li></ol><p>对于第一个式子：</p><script type="math/tex; mode=display">\because A\rightarrow C,~B\rightarrow D\\\therefore SG(A)\not ={SG(B)},~SG(B)\not ={SG(D)}\\\therefore SG(A)\oplus SG(B)\not\in\{\{SG(A)\oplus SG(C)|B\rightarrow C\}\cup\{SG(D)\oplus SG(B)|A\rightarrow D\}\}</script><p>对于第二个式子：</p><p>设 $F=SG(A)\oplus SG(B)\oplus E$，将 $F$ 和组成它的三部分中的一个异或，一定会使得结果变小（因为 $F$ 最高位上的 $1$ 一定来自其一），而这个数一定不是 $E$，因为 $F\oplus E=SA(A)\oplus SA(B)&gt;E$（由 $E$ 的定义可知）。</p><p>不妨设 $F\oplus SG(A)&lt;SG(A)$，此时由 $SG(B)\oplus E&lt;SG(A)$，再由 $SG$ 函数额定义可以得到，一定有一个 $A$ 的后继状态 $C$ 使得 $SG(C)=SG(B)\oplus E$，从而有 $E=SB(C)\oplus SG(B)$。</p><p>然后我们就证明了 $\forall E &lt; SA(A)\oplus SG(B)$，都有 $E\in \{\{SG(A)\oplus SG(C)|B\rightarrow C\}\cup\{SG(D)\oplus SG(B)|A\rightarrow D\}\}$。</p><p>总结一下，我们就得到了 $SG$ 函数的两条高明性质：</p><ul><li>$SG(A)=\operatorname{mex}(SG(B)|A\rightarrow B)$</li><li>$SG(A@B)=SG(A)\oplus SG(B)$</li></ul><script>var a=document.getElementsByTagName("h1");for(var i=0;i<a.length;++i)if(a[i].parentNode.className.indexOf("markdown-body")>-1)document.getElementById("subtitle").title=a[i].innerHTML,a[i].parentNode.removeChild(a[i]);</script>]]></content>
+    
+    
+    <categories>
+      
+      <category>数学</category>
+      
+      <category>博弈论</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>数学</tag>
+      
+      <tag>博弈论</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>2022-03-01 模拟赛题解</title>
     <link href="/2022/03/01/2022-03-01-%E6%A8%A1%E6%8B%9F%E8%B5%9B%E9%A2%98%E8%A7%A3/"/>
     <url>/2022/03/01/2022-03-01-%E6%A8%A1%E6%8B%9F%E8%B5%9B%E9%A2%98%E8%A7%A3/</url>
@@ -31,7 +60,7 @@
   
   
   <entry>
-    <title>多项式笔记</title>
+    <title>多项式入门</title>
     <link href="/2022/02/28/%E5%A4%9A%E9%A1%B9%E5%BC%8F%E7%AC%94%E8%AE%B0/"/>
     <url>/2022/02/28/%E5%A4%9A%E9%A1%B9%E5%BC%8F%E7%AC%94%E8%AE%B0/</url>
     
@@ -41,6 +70,8 @@
     <categories>
       
       <category>数学</category>
+      
+      <category>多项式</category>
       
     </categories>
     
@@ -69,12 +100,16 @@
       
       <category>数学</category>
       
+      <category>数论</category>
+      
     </categories>
     
     
     <tags>
       
       <tag>数学</tag>
+      
+      <tag>反演</tag>
       
     </tags>
     
