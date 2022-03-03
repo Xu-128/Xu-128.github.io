@@ -24,7 +24,7 @@
 <meta property="og:description" content="博弈论入门公平组合游戏公平组合游戏是指满足以下性质的游戏：  游戏有且仅有两人，轮流操作。 双方在任意时刻的决策集合仅和时刻的状态有关，和决策者无关。  Nim 游戏有 $n$ 堆石子，第 $i$ 堆石子有 $a_i$ 个。两名玩家轮流取走某一堆的若干个石子，可以取完但是不能不取，最后不能取石子的玩家判负，问先手是否有必胜策略。 结论若 $a_1\oplus a_2\oplus \cdots\op">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-01T11:56:05.000Z">
-<meta property="article:modified_time" content="2022-03-01T13:39:18.796Z">
+<meta property="article:modified_time" content="2022-03-03T01:26:45.915Z">
 <meta property="article:author" content="__Xu128">
 <meta property="article:tag" content="数学">
 <meta property="article:tag" content="博弈论">
@@ -204,7 +204,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.4k 字
+          4.6k 字
         
       </span>
     
@@ -215,7 +215,7 @@
         
         
         
-          25 分钟
+          47 分钟
         
       </span>
     
@@ -299,9 +299,12 @@ SG(A@B)=\operatorname{mex}(\{SG(C)|A\rightarrow C\}\{SG(D)|B\rightarrow D\})</sc
 </ol>
 <p>对于第一个式子：</p>
 <script type="math/tex; mode=display">
-\because A\rightarrow C,~B\rightarrow D\\
-\therefore SG(A)\not ={SG(B)},~SG(B)\not ={SG(D)}\\
-\therefore SG(A)\oplus SG(B)\not\in\{\{SG(A)\oplus SG(C)|B\rightarrow C\}\cup\{SG(D)\oplus SG(B)|A\rightarrow D\}\}</script><p>对于第二个式子：</p>
+\begin{aligned}
+&\because A\rightarrow C,~B\rightarrow D\\
+&\therefore SG(A)\not ={SG(B)},~SG(B)\not ={SG(D)}\\
+&\therefore SG(A)\oplus SG(B)\not\in\{\{SG(A)\oplus SG(C)|B\rightarrow C\}\cup\{SG(D)\oplus SG(B)|A\rightarrow D\}\}
+
+\end{aligned}</script><p>对于第二个式子：</p>
 <p>设 $F=SG(A)\oplus SG(B)\oplus E$，将 $F$ 和组成它的三部分中的一个异或，一定会使得结果变小（因为 $F$ 最高位上的 $1$ 一定来自其一），而这个数一定不是 $E$，因为 $F\oplus E=SA(A)\oplus SA(B)&gt;E$（由 $E$ 的定义可知）。</p>
 <p>不妨设 $F\oplus SG(A)&lt;SG(A)$，此时由 $SG(B)\oplus E&lt;SG(A)$，再由 $SG$ 函数额定义可以得到，一定有一个 $A$ 的后继状态 $C$ 使得 $SG(C)=SG(B)\oplus E$，从而有 $E=SB(C)\oplus SG(B)$。</p>
 <p>然后我们就证明了 $\forall E &lt; SA(A)\oplus SG(B)$，都有 $E\in \{\{SG(A)\oplus SG(C)|B\rightarrow C\}\cup\{SG(D)\oplus SG(B)|A\rightarrow D\}\}$。</p>
@@ -310,6 +313,21 @@ SG(A@B)=\operatorname{mex}(\{SG(C)|A\rightarrow C\}\{SG(D)|B\rightarrow D\})</sc
 <li>$SG(A)=\operatorname{mex}(SG(B)|A\rightarrow B)$</li>
 <li>$SG(A@B)=SG(A)\oplus SG(B)$</li>
 </ul>
+<h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><h3 id="GZOI2017-取石子游戏"><a href="#GZOI2017-取石子游戏" class="headerlink" title="[GZOI2017] 取石子游戏"></a>[GZOI2017] 取石子游戏</h3><p>[题面](<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P5675">https://www.luogu.com.cn/problem/P5675</a>)</p>
+<p>考虑 Nim 游戏的获胜条件，先手必胜当前仅当开始局面异或和为 $0$，为了让阴险的 Alice 不能获胜，有以下两种办法：</p>
+<ul>
+<li>开局异或和为 $0$。</li>
+<li>开局异或和不为 $0$，但是指定的一堆石子数量小于其他石子的异或和。</li>
+</ul>
+<p>第一种情况可以认为是指定的一堆石子必须等于其他石子的异或和，所以我们的任务就是：从 $n$ 堆石子中选择任意堆，从选择的石子堆里面选出一堆，使其数量小于等于选择的其他石子的异或和。</p>
+<p>考虑钦定 Alice 选哪一堆，然后用动态规划求出其余石子异或和大于等于选定石子个数的方案数即可。</p>
+<p>设钦定 Alice 选择第 $i$ 堆石子， $f_{j, k}$ 表示前 $j$ 堆里，异或和等于 $k$ 的方案数，容易得到转移方程：</p>
+<script type="math/tex; mode=display">
+f_{j,k}=\begin{cases}
+f_{j-1,k}&i=j\\
+f_{j-1,k}+f_{j-1,k\oplus A_j}&i\not ={j}
+\end{cases}</script><p>分两种情况的原因是钦定的石子堆是不能用来转移的。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-comment">//#define int long long</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> FL(a, b, c) memset(a, b, c)</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> RE() cout &lt;&lt; <span class="hljs-string">&quot;What Happened?&quot;</span> &lt;&lt; endl</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> TE() cerr &lt;&lt; <span class="hljs-string">&quot;Time : &quot;</span> &lt;&lt; clock() &lt;&lt; <span class="hljs-string">&quot;(ms)&quot;</span> &lt;&lt; endl</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> DG(x) cout &lt;&lt; <span class="hljs-string">&quot;Debug : &quot;</span> &lt;&lt; #x &lt;&lt; <span class="hljs-string">&quot; = &quot;</span> &lt;&lt; x &lt;&lt; endl</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> IR(a, b, c, ...) for(int a(b), ##__VA_ARGS__; a &lt;= c; ++a)</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> OR(a, b, c, ...) for(int a(b), ##__VA_ARGS__; a &gt;= c; --a)</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ER(a, b, c, ...) for(int a(head[b]), c(ver[a]), ##__VA_ARGS__; a; a = next[a], c = ver[a])</span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">FastIN</span> &#123;<br>	<span class="hljs-keyword">template</span> &lt; <span class="hljs-keyword">class</span> <span class="hljs-title class_">T</span> &gt; <span class="hljs-keyword">inline</span> FastIN&amp; <span class="hljs-keyword">operator</span> &gt;&gt; (T&amp; x) &#123;<br>		x = <span class="hljs-number">0</span>; <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">sd</span><span class="hljs-params">(<span class="hljs-literal">false</span>)</span></span>;<br>		<span class="hljs-function"><span class="hljs-type">char</span> <span class="hljs-title">ch</span><span class="hljs-params">(getchar())</span></span>;<br>		<span class="hljs-keyword">while</span> (!<span class="hljs-built_in">isdigit</span>(ch) <span class="hljs-built_in">and</span> (ch != <span class="hljs-string">&#x27;-&#x27;</span>)) ch = <span class="hljs-built_in">getchar</span>();<br>		<span class="hljs-keyword">if</span> (ch == <span class="hljs-string">&#x27;-&#x27;</span>) sd = <span class="hljs-literal">true</span>, ch = <span class="hljs-built_in">getchar</span>();<br>		<span class="hljs-keyword">while</span> (ch &gt;= <span class="hljs-string">&#x27;0&#x27;</span> <span class="hljs-keyword">and</span> ch &lt;= <span class="hljs-string">&#x27;9&#x27;</span>) x = (x &lt;&lt; <span class="hljs-number">3</span>) + (x &lt;&lt; <span class="hljs-number">1</span>) + ch - <span class="hljs-string">&#x27;0&#x27;</span>, ch = <span class="hljs-built_in">getchar</span>();<br>		<span class="hljs-keyword">if</span> (sd == <span class="hljs-literal">true</span>) x = -x;<br>		<span class="hljs-keyword">return</span> *<span class="hljs-keyword">this</span>;<br>	&#125;<br>&#125; IN;<br><span class="hljs-function"><span class="hljs-type">const</span> <span class="hljs-type">int</span> <span class="hljs-title">INF</span><span class="hljs-params">(~<span class="hljs-number">0u</span> &gt;&gt; <span class="hljs-number">1</span>)</span></span>;<br><span class="hljs-keyword">template</span> &lt; <span class="hljs-keyword">class</span> <span class="hljs-title class_">T</span> &gt; <span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">CL</span><span class="hljs-params">(T&amp; x_)</span> </span>&#123; <span class="hljs-built_in">FL</span>(x_, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span> x_); &#125;<br><span class="hljs-keyword">template</span> &lt; <span class="hljs-keyword">class</span> <span class="hljs-title class_">T</span>, <span class="hljs-keyword">class</span>... Args&gt; <span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">CL</span><span class="hljs-params">(T &amp;x_, Args&amp; ...others)</span> </span>&#123; <span class="hljs-built_in">FL</span>(x_, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span> x_), <span class="hljs-built_in">CL</span>(others...); &#125;<br><br><span class="hljs-function"><span class="hljs-type">const</span> <span class="hljs-type">int</span> <span class="hljs-title">kN</span><span class="hljs-params">(<span class="hljs-number">222</span>)</span>, <span class="hljs-title">kV</span><span class="hljs-params">(<span class="hljs-number">257</span>)</span>, <span class="hljs-title">Mod</span><span class="hljs-params">(<span class="hljs-number">1e9</span> + <span class="hljs-number">7</span>)</span></span>;<br><span class="hljs-type">int</span> N, A[kN], Ans;<br><span class="hljs-type">int</span> F[kN][kV];<br><br><span class="hljs-function"><span class="hljs-type">signed</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br><span class="hljs-meta">#<span class="hljs-keyword">ifdef</span> FIO</span><br>	<span class="hljs-built_in">freopen</span>(<span class="hljs-string">&quot;I:/Code/Data/In.in&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>, stdin);<br>	<span class="hljs-built_in">freopen</span>(<span class="hljs-string">&quot;I:/Code/Data/Out.out&quot;</span>, <span class="hljs-string">&quot;w&quot;</span>, stdout);<br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br>  IN &gt;&gt; N; <span class="hljs-built_in">IR</span>(i, <span class="hljs-number">1</span>, N) IN &gt;&gt; A[i];<br>	<span class="hljs-built_in">IR</span>(i, <span class="hljs-number">1</span>, N) &#123;<br>		<span class="hljs-built_in">FL</span>(F, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span> F);<br>		F[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;        <br>		<span class="hljs-built_in">IR</span>(j, <span class="hljs-number">1</span>, N) &#123;<br>			<span class="hljs-built_in">IR</span>(k, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>) &#123;<br>				<span class="hljs-keyword">if</span> (i == j) F[j][k] = F[j - <span class="hljs-number">1</span>][k];<br>				<span class="hljs-keyword">else</span> F[j][k] = (F[j - <span class="hljs-number">1</span>][k] + F[j - <span class="hljs-number">1</span>][k ^ A[j]]) % Mod;<br>			&#125;<br>		&#125;<br>		<span class="hljs-built_in">IR</span>(j, A[i], <span class="hljs-number">255</span>) Ans = (Ans + F[N][j]) % Mod;<br>	&#125;<br>	cout &lt;&lt; Ans &lt;&lt; <span class="hljs-string">&quot;\n&quot;</span>;<br><br>&#125;<br></code></pre></td></tr></table></figure>
 <script>
 var a=document.getElementsByTagName("h1");for(var i=0;i<a.length;++i)if(a[i].parentNode.className.indexOf("markdown-body")>-1)document.getElementById("subtitle").title=a[i].innerHTML,a[i].parentNode.removeChild(a[i]);</script>
 
