@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>网络流中的一些概念</title>
+    <link href="/2022/03/14/%E7%BD%91%E7%BB%9C%E6%B5%81%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E6%A6%82%E5%BF%B5/"/>
+    <url>/2022/03/14/%E7%BD%91%E7%BB%9C%E6%B5%81%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E6%A6%82%E5%BF%B5/</url>
+    
+    <content type="html"><![CDATA[<h1 id="网络流中的一些概念"><a href="#网络流中的一些概念" class="headerlink" title="网络流中的一些概念"></a>网络流中的一些概念</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>设无向联通图 $G=(V,E)$</p><ul><li>匹配：在 $G$ 中没有公共端点的边的集合 $M\subseteq E$。</li><li>边覆盖：在 $G$ 中任意顶点都必须是集合 $F$ 中某条边的端点。 $F$ 为 $G$ 的一个边覆盖。</li><li>独立集：在 $G$ 中两两互不连通的点集合 $S\subseteq V$。</li><li>点覆盖：在 $G$ 中任意边都至少有一个顶点在 $S$ 中。$S$ 是 $G$ 的一个点覆盖。</li></ul><h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2><h3 id="最大匹配和最小边覆盖"><a href="#最大匹配和最小边覆盖" class="headerlink" title="最大匹配和最小边覆盖"></a>最大匹配和最小边覆盖</h3><script type="math/tex; mode=display">|M_{max}|+|F_{min}|=|V|</script><h4 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h4><p>根据定义，$M_{max}$ 一共覆盖了 $2\times |M_{max}|$ 个点，还剩下 $|V|-2\times |M_{max}|$ 个点尚未被覆盖。</p><p>考虑向 $M$ 中加边，每加入一条边都会使得覆盖点集大小加一（如果加二则不符合最大匹配的定义），所以一共会加入 $|V|-2\times |M_{max}|$ 条边。</p><p>所以 $|F_{min}|=|M_{max}|+2\times |M_{max}|$。\<br>移项得到 $|F_{min}|+|M_{max}|=|V|$。</p><h3 id="最大独立集和最小点覆盖"><a href="#最大独立集和最小点覆盖" class="headerlink" title="最大独立集和最小点覆盖"></a>最大独立集和最小点覆盖</h3><script type="math/tex; mode=display">|S_{max}|+|S_{min}|=|V|</script><h4 id="证明-1"><a href="#证明-1" class="headerlink" title="证明"></a>证明</h4><p>设一最大独立集为 $S_{max}$，则其补集 $\complement S_{max}$ 一定和 $S_{max}$ 中的任意一点联通。</p><p>根据独立集的定义，$S_{max}$ 中的点一定互不连通，所以 $\complement S_{max}$ 一定包含了任意边的至少一个顶点，所以 $\complement S_{max}$ 是一个顶点覆盖。</p><p>根据补集的定义，$|\complement S_{max}| + |S_{max}|=|V|$。\<br>注意到 $\complement S_{max}=S_{min}$，所以 $|S_{max}|=|S_{min}|=|V|$。</p><h3 id="二分图的特殊性质"><a href="#二分图的特殊性质" class="headerlink" title="二分图的特殊性质"></a>二分图的特殊性质</h3><p>对于二分图而言，有</p><script type="math/tex; mode=display">|M_{max}|=|S_{min}|</script><p>即：最大匹配数等于最小点覆盖数。</p><script>var a=document.getElementsByTagName("h1");for(var i=0;i<a.length;++i)if(a[i].parentNode.className.indexOf("markdown-body")>-1)document.getElementById("subtitle").title=a[i].innerHTML,a[i].parentNode.removeChild(a[i]);</script>]]></content>
+    
+    
+    <categories>
+      
+      <category>网络流</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>网络流</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>2022-03-09 模拟赛题解</title>
     <link href="/2022/03/09/2022-03-09-%E6%A8%A1%E6%8B%9F%E8%B5%9B%E9%A2%98%E8%A7%A3/"/>
     <url>/2022/03/09/2022-03-09-%E6%A8%A1%E6%8B%9F%E8%B5%9B%E9%A2%98%E8%A7%A3/</url>
@@ -35,7 +60,7 @@
     <link href="/2022/03/08/2022-03-08-%E6%A8%A1%E6%8B%9F%E8%B5%9B%E9%A2%98%E8%A7%A3/"/>
     <url>/2022/03/08/2022-03-08-%E6%A8%A1%E6%8B%9F%E8%B5%9B%E9%A2%98%E8%A7%A3/</url>
     
-    <content type="html"><![CDATA[<h1 id="2022-03-08-模拟赛题解"><a href="#2022-03-08-模拟赛题解" class="headerlink" title="2022-03-08 模拟赛题解"></a>2022-03-08 模拟赛题解</h1><h2 id="T1"><a href="#T1" class="headerlink" title="T1"></a>T1</h2><p>考虑不可能给排名更低的队伍送气球，且如果排名更高的队伍送气球一定会送到炸。</p><p>所以考虑先对其他队伍按照气球数从大到小排序，然后建一个小根堆，按照送气球到炸的数量重载小于号，将排名高于我们的队伍都放到堆里，每次取出堆顶处理一下就做完了。</p><h2 id="T2"><a href="#T2" class="headerlink" title="T2"></a>T2</h2><p>考虑对于每一条边分别处理贡献，因此我们只需要知道每一条边走了多少次，维护两个树上差分数组即可。</p><h2 id="T3"><a href="#T3" class="headerlink" title="T3"></a>T3</h2><p>考虑把直径拎出来，如果拆分出来的边不在直径上，对答案的贡献一定还是直径。</p><p>如果拆分的边在直径上，就会分成左右两部分。单独考虑左边的情况（右边同理），根据直径的定义，左边的新直径的左端点一定是原先直径的左端点（否则与直径是最长的路径矛盾），然后对于每一个直径上的点记录自己到子树内的最长链长度，接着求出左端点到这个点的路径长度和自己的最长链长度求和，然后更新最大值即可。</p><script>var a=document.getElementsByTagName("h1");for(var i=0;i<a.length;++i)if(a[i].parentNode.className.indexOf("markdown-body")>-1)document.getElementById("subtitle").title=a[i].innerHTML,a[i].parentNode.removeChild(a[i]);</script>]]></content>
+    <content type="html"><![CDATA[<h1 id="2022-03-08-模拟赛题解"><a href="#2022-03-08-模拟赛题解" class="headerlink" title="2022-03-08 模拟赛题解"></a>2022-03-08 模拟赛题解</h1><p><a href = 题面.zip>题面</a></p><h2 id="T1"><a href="#T1" class="headerlink" title="T1"></a>T1</h2><p>考虑不可能给排名更低的队伍送气球，且如果排名更高的队伍送气球一定会送到炸。</p><p>所以考虑先对其他队伍按照气球数从大到小排序，然后建一个小根堆，按照送气球到炸的数量重载小于号，将排名高于我们的队伍都放到堆里，每次取出堆顶处理一下就做完了。</p><h2 id="T2"><a href="#T2" class="headerlink" title="T2"></a>T2</h2><p>考虑对于每一条边分别处理贡献，因此我们只需要知道每一条边走了多少次，维护两个树上差分数组即可。</p><h2 id="T3"><a href="#T3" class="headerlink" title="T3"></a>T3</h2><p>考虑把直径拎出来，如果拆分出来的边不在直径上，对答案的贡献一定还是直径。</p><p>如果拆分的边在直径上，就会分成左右两部分。单独考虑左边的情况（右边同理），根据直径的定义，左边的新直径的左端点一定是原先直径的左端点（否则与直径是最长的路径矛盾），然后对于每一个直径上的点记录自己到子树内的最长链长度，接着求出左端点到这个点的路径长度和自己的最长链长度求和，然后更新最大值即可。</p><script>var a=document.getElementsByTagName("h1");for(var i=0;i<a.length;++i)if(a[i].parentNode.className.indexOf("markdown-body")>-1)document.getElementById("subtitle").title=a[i].innerHTML,a[i].parentNode.removeChild(a[i]);</script>]]></content>
     
     
     <categories>
