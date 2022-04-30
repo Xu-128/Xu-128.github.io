@@ -1,0 +1,878 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/123.png">
+  <link rel="icon" href="/img/123.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="__Xu128">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="欧拉函数定义$\varphi(x)$ 表示 $[1,x-1]$ 中与 $x$ 互质的数的个数. 性质 若 $p$ 为质数,则 $\varphi(p^m)&#x3D;p^{n-1}(p-1)$ 若 $a|x$,则 $\varphi(ax)&#x3D;a\varphi(x)$ 若 $a\perp b$,则 $\varphi(ab)&#x3D;\varphi(a)\varphi(b)$  计算设正整数 $n&#x3D;\sum_ip_i^{k">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数学笔记">
+<meta property="og:url" content="http://example.com/2021/04/30/%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="__Xu128 &#39;s Blog">
+<meta property="og:description" content="欧拉函数定义$\varphi(x)$ 表示 $[1,x-1]$ 中与 $x$ 互质的数的个数. 性质 若 $p$ 为质数,则 $\varphi(p^m)&#x3D;p^{n-1}(p-1)$ 若 $a|x$,则 $\varphi(ax)&#x3D;a\varphi(x)$ 若 $a\perp b$,则 $\varphi(ab)&#x3D;\varphi(a)\varphi(b)$  计算设正整数 $n&#x3D;\sum_ip_i^{k">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-04-30T04:03:58.000Z">
+<meta property="article:modified_time" content="2022-04-30T04:03:24.783Z">
+<meta property="article:author" content="__Xu128">
+<meta property="article:tag" content="数学">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>数学笔记 - __Xu128 &#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":100,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>__Xu128&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          <span id="subtitle" title="__Xu128&#39;s Blog">
+            
+          </span>
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        __Xu128
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-04-30 12:03" pubdate>
+          2021年4月30日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          141 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">数学笔记</h1>
+            
+            <div class="markdown-body">
+              
+              <h2 id="欧拉函数"><a href="#欧拉函数" class="headerlink" title="欧拉函数"></a>欧拉函数</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>$\varphi(x)$ 表示 $[1,x-1]$ 中与 $x$ 互质的数的个数.</p>
+<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ul>
+<li>若 $p$ 为质数,则 $\varphi(p^m)=p^{n-1}(p-1)$</li>
+<li>若 $a|x$,则 $\varphi(ax)=a\varphi(x)$</li>
+<li>若 $a\perp b$,则 $\varphi(ab)=\varphi(a)\varphi(b)$</li>
+</ul>
+<h3 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h3><p>设正整数 $n=\sum_ip_i^{k_i}$,则 $\varphi(n)=n*\Pi_i\frac{p_i-1}{p_i}$.</p>
+<h2 id="欧拉定理"><a href="#欧拉定理" class="headerlink" title="欧拉定理"></a>欧拉定理</h2><p>若 $a\perp m$,则</p>
+<script type="math/tex; mode=display">
+
+a^\varphi(m)\equiv 1\ (mod\ m)\\
+a^b\equiv a^{b\mod \varphi(m)}\ (mod\ m)</script><h2 id="费马小定理"><a href="#费马小定理" class="headerlink" title="费马小定理"></a>费马小定理</h2><p>若 $p$ 为质数,则</p>
+<script type="math/tex; mode=display">
+a^{p-1}\equiv 1\ (mod\ p)\\
+a^{p-2}\equiv a^{-1}\ (mod\ p)\\</script><h2 id="狄利克雷卷积"><a href="#狄利克雷卷积" class="headerlink" title="狄利克雷卷积"></a>狄利克雷卷积</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><script type="math/tex; mode=display">
+(f*g)(n):=\sum_{xy=n}f(x)g(y)</script><p>通常也可写作 </p>
+<script type="math/tex; mode=display">
+(f*g)(n):=\sum_{d|n}f(d)g(\frac{n}{d})</script><h3 id="其他一些函数"><a href="#其他一些函数" class="headerlink" title="其他一些函数"></a>其他一些函数</h3><ul>
+<li>单位函数 $\varepsilon(n):=\begin{cases}1 &amp; n=1\\0 &amp; \text{otherwise}\end{cases}$</li>
+<li>幂函数 $Id_k(n):=n^k$</li>
+<li>除数函数 $\sigma_k(n):=\sum_{d|n}d^k$</li>
+<li>欧拉函数 $\varphi(n)$</li>
+<li>莫比乌斯函数 $\mu(n)$</li>
+</ul>
+<p>以上函数均为**积性函数**.</p>
+<h3 id="性质-1"><a href="#性质-1" class="headerlink" title="性质"></a>性质</h3><p>若 $f$ 和 $g$ 为 积性函数,则 $f*g$ 也是积性函数,证明略.</p>
+<h3 id="除数函数和幂函数"><a href="#除数函数和幂函数" class="headerlink" title="除数函数和幂函数"></a>除数函数和幂函数</h3><p>据定义,有：</p>
+<p>$(f*1)(n)=\sum_{d|n}f(d)1(\frac{n}{d})=\sum_{d|n}f(d)$</p>
+<p>所以：</p>
+<p>$(Id_k*1)(n)=\sum_{d|n}Id_k(d)=\sum_{d|n}d^k$,即 $Id_k*1=\sigma_k$</p>
+<h3 id="欧拉函数和恒等函数"><a href="#欧拉函数和恒等函数" class="headerlink" title="欧拉函数和恒等函数"></a>欧拉函数和恒等函数</h3><p>$(\varphi * 1)(n)=\sum_{d|n}\varphi(n)$</p>
+<p>考虑对于 $n=p^m$（$p$ 为质数）的情况.</p>
+<p>$\sum_{d|n}\varphi(n)=\sum_{i=0}^m\varphi(p^i)=\varphi(1)+\sum_{i=1}^m\varphi(p^i)=p^m=n$</p>
+<p>因为 $\varphi$ 和 $1$ 为积性函数,所以 $(\varphi*1)$ 也为积性函数,所以使用算术基本定理将 $n$ 拆分为若干质数乘积的形式,即可证明 $Id=\varphi*1$.</p>
+<h3 id="莫比乌斯函数和单位函数"><a href="#莫比乌斯函数和单位函数" class="headerlink" title="莫比乌斯函数和单位函数"></a>莫比乌斯函数和单位函数</h3><p>$\mu * 1 = \varepsilon$</p>
+<p>证明略.</p>
+<h3 id="狄利克雷卷积的性质"><a href="#狄利克雷卷积的性质" class="headerlink" title="狄利克雷卷积的性质"></a>狄利克雷卷积的性质</h3><p>满足交换律,结合律和分配律.</p>
+<h2 id="欧拉-莫比乌斯反演"><a href="#欧拉-莫比乌斯反演" class="headerlink" title="欧拉/莫比乌斯反演"></a>欧拉/莫比乌斯反演</h2><h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><blockquote>
+<p>$\sum_{i=1}^n\sum_{j=1}^m[gcd(i, j)=1]$</p>
+</blockquote>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum_{i=1}^n\sum_{j=1}^m[gcd(i, j)=1]
+&=\sum_{i=1}^n\sum_{j=1}^m\varepsilon(gcd(i, j))\\
+&=\sum_{i=1}^n\sum_{j=1}^m(\mu * 1)(gdc(i, j))\\
+&=\sum_{i=1}^n\sum_{j=1}^m\sum_{d|gcd(i, j)}\mu(d)\\
+&=\sum_{d=1}^{\min(n, m)}\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}\mu(d)\\
+&=\sum_{d=1}^{\min(n, m)}\mu(d)\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}1\\
+&=\sum_{d=1}^{\min(n, m)}\mu(d)\lfloor\frac{n}{d}\rfloor\lfloor\frac{m}{d}\rfloor
+\end{aligned}</script><blockquote>
+<p>$\sum_{i=1}^n\sum_{j=1}^mgcd(i, j)$</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum_{i=1}^n\sum_{j=1}^mgcd(i, j)
+&=\sum_{i=1}^m\sum_{j=1}^m\sum_{d|gcd(i, j)}\varphi(d)\\
+&=\sum_{d=1}^{\min(n, m)}\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}\varphi(d)\\
+&=\sum_{d=1}^{\min(n, m)}\varphi(d)\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}\\
+&=\sum_{d=1}^{\min(n, m)}\varphi(d)\lfloor\frac{n}{d}\rfloor\lfloor\frac{m}{d}\rfloor
+\end{aligned}</script><p>$\sum_{i=1}^n\sum_{j=1}^mlcm(i, j)$</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum_{i=1}^n\sum_{j=1}^mlcm(i, j)
+&=\sum_{i=1}^n\sum_{j=1}^m\frac{ij}{\gcd(i, j)}\\
+&=\sum_{i=1}^n\sum_{j=1}^m\sum_{d=1}^{gcd(i, j)}[d=\gcd(i, j)]\frac{ij}{d}\\
+&=\sum_{d=1}^{\min(n, m)}\sum_{i=1}^n\sum_{j=1}^m[\gcd(i, j)=d]\frac{ij}{d}\\
+&=\sum_{d=1}^{\min(n, m)}\frac{1}{d}\times d\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}[\gcd(i, j)=d]ij\\
+&=\sum_{d=1}^{\min(n, m)}d\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}[\gcd(i, j)==1]ij\\
+&=\sum_{d=1}^{\min(n, m)}d\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}\sum_{e|gcd(i, j)}\mu(e)ij\\
+&=\sum_{d=1}^{\min(n, m)}d\sum_{e=1}^{\min(\lfloor\frac{n}{d}\rfloor,\lfloor\frac{m}{d}\rfloor)}\mu(e)\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}ij[e|ij]\\
+&=\sum_{d=1}^{\min(n, m)}d\sum_{e=1}^{\min(\lfloor\frac{n}{d}\rfloor,\lfloor\frac{m}{d}\rfloor)}\mu(e)\sum_{ie=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{je=1}^{\lfloor\frac{m}{d}\rfloor}ie\times je\\
+&=\sum_{d=1}^{\min(n, m)}d\sum_{e=1}^{\min(\lfloor\frac{n}{d}\rfloor,\lfloor\frac{m}{d}\rfloor)}\mu(e) \times e^2\sum_{ie=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{je=1}^{\lfloor\frac{m}{d}\rfloor}ij\\
+&=\sum_{d=1}^{\min(n, m)}d\sum_{e=1}^{\min(\lfloor\frac{n}{d}\rfloor,\lfloor\frac{m}{d}\rfloor)}\mu(e) \times e^2\sum_{i=1}^{\lfloor\frac{n}{de}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{de}\rfloor}ij\\
+\end{aligned}</script></blockquote>
+<h2 id="组合数学"><a href="#组合数学" class="headerlink" title="组合数学"></a>组合数学</h2><h3 id="一些组合恒等式"><a href="#一些组合恒等式" class="headerlink" title="一些组合恒等式"></a>一些组合恒等式</h3><hr>
+<p>以下恒等式**基本**都有组合意义</p>
+<script type="math/tex; mode=display">
+\binom{n}{k}=\binom{n}{n-k}\\
+\binom{n}{k}=\frac{n}{k}\binom{j-1}{k-1}\\
+\binom{n}{k}=\binom{n-1}{k}+\binom{n-1}{k-1}\\
+\sum_{l=0}^{n}\binom{l}{k}=\binom{n+1}{k+1},\ n,~k\in N\\
+\sum_{k=0}^nk\binom{n}{k}=\sum_{k=0}^{n}k\frac{n}{k}\binom{n-1}{k-1}=n\sum_{k=0}^{n}\binom{n-1}{k-1}=n2^{n-1}\\
+\binom{n}{r}\binom{r}{k}=\binom{n}{k}\binom{n-k}{r-k}\\
+\sum_{k=0}^{r}\binom{m}{k}\binom{n}{r-k}=\binom{m+n}{r}\\
+\sum_{k=0}^{m}\binom{m}{k}\binom{n}{k}=\sum_{k=0}^{m}\binom{m}{m-k}\binom{n}{k}=\binom{n+m}{m}\\
+\sum_{k=0}^{n}\binom{n}{k}^2=\binom{2n}{n}\\</script><h3 id="多项式系数"><a href="#多项式系数" class="headerlink" title="多项式系数"></a>多项式系数</h3><hr>
+<p>$n$ 个不同的球放到 $t$ 个不同的盒子使得第 $i$ 个盒子含 $n_i$ 的方案数为 $\binom{n}{n_1 n_2…n_t}$.</p>
+<p>将 $(x_1+x_2+x_3+…+x_t)^n$ 展开,其 $x_1^{n_1}x_2^{n_2}…x_3^{n_3}$ 项的系数为 $\binom{n}{n_1 n_2…n_t}$.</p>
+<script type="math/tex; mode=display">
+\binom{n}{n_1n_2n_3...n_t}=\frac{n!}{n_1!n_2!n_3!...n_t!}\\
+\binom{n}{n_1n_2n_3...n_t}=\binom{n-1}{(n_1-1)n_2...n_t}+\binom{n-1}{n_1(n_2-1)...n_t}+...+\binom{n-1}{n_1n_2...(n_t-1)}</script><h3 id="单调路径问题"><a href="#单调路径问题" class="headerlink" title="单调路径问题"></a>单调路径问题</h3><hr>
+<p>定义：单调路径就是只能向上和向右走的路径.</p>
+<ul>
+<li>从 $(0,\;0)$ 到 $(a,\;b)$  的单调路径数？<ul>
+<li>总共需要走 $a+b$ 步,其中 $a$ 步向右走,答案为 $\binom{a+b}{a}$</li>
+</ul>
+</li>
+<li>从 $(x,\;y)$ 到 $(a,\;b)$  的单调路径数？<ul>
+<li>等价于从 $(0,\; 0)$ 走到 $(a-x,\;b-y)$ ,答案为 $\binom{a-x+b-y}{a-x}$</li>
+</ul>
+</li>
+<li>从 $(x,\;y)$ 经过 $(c,\;d)$ 到 $(a,\;b)$  的单调路径数？<ul>
+<li>使用乘法原理得到答案.</li>
+</ul>
+</li>
+<li>从 $(0,\; 0 )$ 到 $(n, \;n)$ 除端点以外不高于主对角线的单调路径数？<ul>
+<li>使用所有路径减去经过对角线的单调路径即为答案,答案为 $\binom{2n-2}{n-1}-\binom{2n-2}{n}=\frac{1}{n}\times \binom{2n-2}{n-1}$</li>
+</ul>
+</li>
+</ul>
+<h3 id="Lucas-定理"><a href="#Lucas-定理" class="headerlink" title="Lucas 定理"></a>Lucas 定理</h3><hr>
+<script type="math/tex; mode=display">
+\binom{n}{m}\equiv\ \prod_i\binom{n_i}{m_i}~\pmod{p}\\
+\binom{n}{m}=\binom{n\div p}{m\div p}\binom{n\mod p}{m\mod p}\\</script><hr>
+<p>一道组合数的题目链接：[AT2649 11](<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/AT2649">https://www.luogu.com.cn/problem/AT2649</a>)</p>
+<p>二道组合数的题目链接： [CF1312D Count the Arrays](luogu.com.cn/problem/CF1312D)</p>
+<h3 id="扩展卢卡斯定理"><a href="#扩展卢卡斯定理" class="headerlink" title="扩展卢卡斯定理"></a>扩展卢卡斯定理</h3><p>该定理适用于求解模数为非质数的组合数.</p>
+<h4 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h4><script type="math/tex; mode=display">
+\binom{n}{m}\mod q=\frac{n!}{m!(n-m)!}\mod q</script><p>由于模数不一定为质数,所以不能求解分母的逆元,但是可以先对 $q$ 进行质因数分解（设 $p^k$ 为其中一个质因子次幂）,从 $m!$ 和 $(n-m)!$ 中分解出 $p$ 的正整数次幂,使其互质,使用扩展欧几里得算法求解逆元,然后使用中国剩余定理合并即可.</p>
+<script type="math/tex; mode=display">
+\frac{n!}{m!(n-m)!}\mod p=\frac{n!}{\frac{m!}{p^a}\cdot\frac{(n-m)!}{p^b}}\cdot p^{a+b}\mod p^k</script><p>定义函数 $G(x, p)$ 表示在 $x!$ 中 $p^k$ 的出现次数,注意到该函数的递推式为：</p>
+<script type="math/tex; mode=display">
+G(x, p) = G(\lfloor\frac{x}{p}\rfloor, p) + \lfloor\frac{x}{p}\rfloor</script><p>该函数可以在 $O(\log_px)$ 的时间复杂度内求解.</p>
+<h3 id="中国剩余定理"><a href="#中国剩余定理" class="headerlink" title="中国剩余定理"></a>中国剩余定理</h3><hr>
+<p>题目链接：[中国剩余定理(CRT)](<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1495">https://www.luogu.com.cn/problem/P1495</a>) </p>
+<p>以下为中国剩余定理的前置芝士：</p>
+<h4 id="裴蜀定理"><a href="#裴蜀定理" class="headerlink" title="裴蜀定理"></a>裴蜀定理</h4><p>​        对于任意整数 $a,\;b$,存在一对整数 $x,\;y$,满足$ax+by=gcd(a,b)$.</p>
+<h5 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h5><p>​        在欧几里得算法的最后一步,即 $b=0$ 时,显然有整数 $x=1,\;y=0$,使得 $a\times 1 + 0 \times 0 = gcd(a,0)$.</p>
+<p>​        若  $b&gt;0$,则 $gcd(a,b)=gcd(b, a~mod~b)$,假设存在一对整数 $x,y$ 满足 </p>
+<script type="math/tex; mode=display">
+b\times x+(a~mod~b)\times y = gcd(b, a~mod~b)</script><p>根据模运算的定义展开上式可得：</p>
+<script type="math/tex; mode=display">
+bx + (a - \lfloor\frac{a}{b}\rfloor b)y=ay+b(x - \lfloor\frac{a}{b}\rfloor y)</script><p>设 $x’=y,~y’=x-\lfloor\frac{a}{b}\rfloor y$,即得到 $ax’+by’=gcd(a, b)$.</p>
+<p>​        对欧几里得算法的递归过程应用数学归纳法,可知裴蜀定理成立.</p>
+<h4 id="扩展欧几里得定理"><a href="#扩展欧几里得定理" class="headerlink" title="扩展欧几里得定理"></a>扩展欧几里得定理</h4><p>​        裴蜀定理是按照欧几里得算法的思路证明的,且上述证明过程同时给出了整数 $x$ 和 $y$ 的计算方法,这种计算方法被称为**扩展欧几里得算法**.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Exgcd</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b, <span class="hljs-type">int</span> &amp;x, <span class="hljs-type">int</span> &amp;y)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (!b) &#123; x = <span class="hljs-number">1.</span> y = <span class="hljs-number">0</span>; <span class="hljs-keyword">return</span> a; &#125;<br>    <span class="hljs-type">int</span> d = <span class="hljs-built_in">Exgcd</span>(b, a % b, x, y);<br>    <span class="hljs-type">int</span> z = x;<br>    x = y, y = z - y * (a / b);<br>    <span class="hljs-keyword">return</span> d;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>或者下面的代码</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">Exgcd</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b, <span class="hljs-type">int</span> &amp;x, <span class="hljs-type">int</span> &amp;y)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (!b) &#123; x = <span class="hljs-number">1</span>, y = <span class="hljs-number">0</span>; <span class="hljs-keyword">return</span> a; &#125;<br>    <span class="hljs-type">int</span> d = <span class="hljs-built_in">Exgcd</span>(b, a % b, y, x);<br>	y -= (a / b) * x;<br>    <span class="hljs-keyword">return</span> d;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>​        定义变量 $d, x_0, y_0$,调用 $d=Exgcd(a, b, x, y)$,上述程序就求出了 $ax+by=gcd(a, b)$ 的一组特解$x_0, y_0$,同时返回了 $a$ 和 $b$ 的最大公约数 $d$.</p>
+<p>​        对于更为一般的方程 $ax+by=c$,方程有解当且仅当 $d~|~c$,我们可以先求出其特解,然后令 $x_0, y_0$ 同时乘上 $\frac{c}{d}$,即可求出其他解.</p>
+<p>​        事实上,原方程的通解可以表示为：</p>
+<script type="math/tex; mode=display">
+x=\frac{c}{d}x_0+k\frac{b}{d},\\
+y=\frac{c}{d}y_0-k\frac{a}{d}.(k\in \mathbb{Z})\\</script><h4 id="乘法逆元"><a href="#乘法逆元" class="headerlink" title="乘法逆元"></a>乘法逆元</h4><p>​        若模数 $p$ 为质数,则可以使用费马小定理直接逆元.</p>
+<p>​        若模数 $p$ 不一定为质数,则可以使用 $\texttt{Exgcd}$ 进行求解.</p>
+<p>转化过程如下：</p>
+<p>​        设 $x$ 为 $a$ 在模 $b$ 意义下的逆元,则</p>
+<script type="math/tex; mode=display">
+ax\equiv 1~(mod~b)\\</script><p>​        设参数 $y$,上式可以转化为</p>
+<script type="math/tex; mode=display">
+ax=1-by</script><p>​        移项,得</p>
+<script type="math/tex; mode=display">
+ax+by=1</script><p>​        上式可以通过 $\texttt{Exgcd}$ 算法求解.</p>
+<p>下面进入中国剩余定理的部分：</p>
+<p>​        中国剩余定理是一种用于求解诸如</p>
+<script type="math/tex; mode=display">
+\left\{
+\begin{aligned}
+x\equiv a_1&(mod~m_1)\\
+x\equiv a_2&(mod~m_2)\\
+......\\
+x\equiv a_k&(mod~m_k)
+\end{aligned}
+\right.</script><p>形式的同余方程的神奇东西,其中 $m_1,m_2, m_3, …, m_k$ 为两两互质的整数,需要求解的是 $x$ 的最小非负整数解.</p>
+<h5 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h5><p>​        设 $M=\prod_{i=0}^{k}m_i,M_i=\frac{M}{m_i},M_it_i=1~(mod~m_i)$.其中 $M$ 表示所有方程组模数的乘积,$M_i$ 表示除了对应方程外其余方程模数的乘积,$t_i$ 则为 $M_i$ 的逆元.</p>
+<p>我们可以构造一个特解 $x_0=\sum_{i=0}^{k}a_iM_it_i$,可以推出方程通解为</p>
+<script type="math/tex; mode=display">
+x=x_0+k\times M(k\in \mathbb{Z})</script><p>其中最小的正整数解为</p>
+<script type="math/tex; mode=display">
+x=x_0~mod~M</script><p>使用扩展欧几里得算法求出逆元,进而求出 $x$.</p>
+<h3 id="二项式定理"><a href="#二项式定理" class="headerlink" title="二项式定理"></a>二项式定理</h3><hr>
+<p>基本形式：</p>
+<script type="math/tex; mode=display">
+(x+y)^n=\sum_{k=0}^{n}\binom{n}{k}x^ky^{n-k}</script><p>导出结论：</p>
+<script type="math/tex; mode=display">
+n\in N^+\\
+\sum_{k=0}^{n}\binom{n}{k}=\sum_{k=0}^{n}\binom{n}{k}\times1^{k}\times1^{n-k}=(1+1)^n=2^n\\
+\sum_{k=0}^{n}(-1)^k\binom{n}{k}=(1-1)^n=0</script><h3 id="二项式反演"><a href="#二项式反演" class="headerlink" title="二项式反演"></a>二项式反演</h3><hr>
+<h4 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h4><script type="math/tex; mode=display">
+g(n) =\sum_{i=1}^{n}\binom{n}{i}f(i)\Lrarr f(n)=\sum_{i=1}^{n}(-1)^{n-i}\binom{n}{i}g(i)</script><h4 id="证明-1"><a href="#证明-1" class="headerlink" title="证明"></a>证明</h4><p>先将左式带入右边</p>
+<script type="math/tex; mode=display">
+f(n)=\sum_{i=1}^{n}(-1)^{n-i}\binom{n}{i}\sum_{k=1}^{i}\binom{i}{k}f(k)</script><p>交换枚举顺序</p>
+<script type="math/tex; mode=display">
+f(n)=\sum_{k=1}^{n}f(k)\sum_{i=k}^{n}(-1)^{n-i}\binom{n}{i}\binom{i}{k}</script><p>明显有</p>
+<script type="math/tex; mode=display">
+f(n)=\sum_{k=1}^{n}[k==n]f(k)</script><p>只需要证</p>
+<script type="math/tex; mode=display">
+\sum_{i=k}^{n}(-1)^{n-i}\binom{n}{i}\binom{i}{k}=[i==k]</script><p>左式展开</p>
+<script type="math/tex; mode=display">
+\sum_{i=k}^{n}(-1)^{n-i}\frac{n!}{i!(n-i)!}\frac{i!}{k!(i-k)!}\\
+=\sum_{i=k}^{n}(-1)^{n-i}\frac{n!}{(n-i)!(i-k)!k!}\\
+=\frac{n!}{k!}\sum_{i=k}^{n}\frac{(-1)^{n-i}}{(n-i)!(i-k)!}</script><p>乘上 $(n-k)!$</p>
+<script type="math/tex; mode=display">
+\frac{n!}{k!(n-k)!}\sum_{i=k}^{n}(-1)^{n-i}\frac{(n-k)!}{(n-i)!(i-k)!}\\
+=\binom{n}{k}\sum_{i=k}^{n}(-1)^{n-i}\binom{n-k}{n-i}</script><p>当 $n=k$ 时,上式取值为 $1$,</p>
+<p>当 $n\not = k$ 时,由二项式定理可知上式恒等于 $0$.</p>
+<p>所以上式等价于 $[n==k]$.</p>
+<p>所以原式成立（？）</p>
+<p>参考博客：[二项式反演入门](<a target="_blank" rel="noopener" href="https://www.cnblogs.com/lcyfrog/p/11772757.html">https://www.cnblogs.com/lcyfrog/p/11772757.html</a>)</p>
+<h3 id="容斥原理"><a href="#容斥原理" class="headerlink" title="容斥原理"></a>容斥原理</h3><hr>
+<h4 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h4><p>​        设 $S$ 为有穷集,$P_1,P_2,..,P_m$ 是 $m$ 种性质,$A_i$ 是 $S$ 中具有性质 $P_i$ 的元素构成的子集,其中 $i=1,2,…,m$.则 $S$ 中不具有性质 $P_1,P_2,…,P_m$ 的元素个数为</p>
+<script type="math/tex; mode=display">
+|\overline{A_1}\cap\overline{A_2}\cap...\cap\overline{A_m}|</script><p>​        上式等价于</p>
+<script type="math/tex; mode=display">
+|S|-\sum_{i=0}^{m}|A_i|+\sum_{1\le i<j\le m}|A_i\cap A_j|-\sum_{1\le i<j<k\le m}|A_i\cap A_j\cap A_k|+...+(-1)^m|A_1\cap A_2\cap ...\cap A_m|</script><h3 id="Min-Max-容斥"><a href="#Min-Max-容斥" class="headerlink" title="Min-Max 容斥"></a>Min-Max 容斥</h3><hr>
+<h4 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h4><p>​        给定集合 $S$,设 $max(S)$ 为 $S$ 中的最大值,$min(S)$ 为 $S$ 中的最小值,则：</p>
+<script type="math/tex; mode=display">
+max(S)=\sum_{T\in S}(-1)^{|T|-1}min(T)</script><h4 id="锯个栗子"><a href="#锯个栗子" class="headerlink" title="锯个栗子"></a>锯个栗子</h4><script type="math/tex; mode=display">
+max(a,b)=min(a)+min(b)-min(a, b)\\
+max(a,b,c)=min(a)+min(b)+min(c)-min(a,b)-min(a,c)-min(b-c)+min(a,b,c)</script><p>​        当钦定 $a\le b \le c$ 时,上式化简为</p>
+<script type="math/tex; mode=display">
+max(a,b)=b\\
+max(a,b,c)=c</script><p>正确性显然.</p>
+<h4 id="证明-2"><a href="#证明-2" class="headerlink" title="证明"></a>证明</h4><p>​        将 $S$ 中的数从大到小排序,第 $i$ 大的数计算次数为 </p>
+<script type="math/tex; mode=display">
+\sum_{k=0}^{i-1}\binom{i-1}{k}\times(-1)^{k}</script><p>​        上式在 $i\ge 2$ 时恒等于 $0$,在 $i=1$ 的时候等于 $1$.所以求出的即为集合 $S$ 的最大值.</p>
+<h3 id="组合计数"><a href="#组合计数" class="headerlink" title="组合计数"></a>组合计数</h3><h4 id="多重集"><a href="#多重集" class="headerlink" title="多重集"></a>多重集</h4><p>多重集是指包含重复元素的广义集.<br>设多重集 $S={n_1\cdot a_1,n_2\cdot a_2,n_3\cdot a_3,\cdots,n_k\cdot a_k}$,$n=\sum_{i=1}^ka_i$.</p>
+<h5 id="排列数"><a href="#排列数" class="headerlink" title="排列数"></a>排列数</h5><p>$S$ 的全排列数为：</p>
+<script type="math/tex; mode=display">
+\frac{n!}{n_1!n_2!\cdots n_k!}</script><h5 id="限定意义下的组合数"><a href="#限定意义下的组合数" class="headerlink" title="限定意义下的组合数"></a>限定意义下的组合数</h5><p>设整数 $r\le n_i(\forall i\in [1,k])$,从 $S$ 中取出 $r$ 个元素组成一个多重集（不考虑顺序）的方案数为：</p>
+<script type="math/tex; mode=display">
+\binom{k+r-1}{k-1}</script><p>证明：  因为保证 $r\le n_i(\forall i\in [1, k])$,因此只需要考虑取出所有元素的数量和等于 $r$ 即可,问题可以转化为：从一共 $r + k - 1$ 个数中选择 $r-1$ 个数为 $1$,将所有的数分成 $k$ 组,该问题的方案数为 $\binom{r+k-1}{r-1}$.</p>
+<h5 id="非限定意义下的组合数"><a href="#非限定意义下的组合数" class="headerlink" title="非限定意义下的组合数"></a>非限定意义下的组合数</h5><p>设整数 $r\le n$,从 $S$ 中取出 $r$ 个元素组成一个多重集（不考虑顺序）的方案数为：</p>
+<script type="math/tex; mode=display">
+\binom{k+r-1}{k-1}-\sum_{k=1}^n\binom{k+r-1-(n_i+1)}{k-1}+\sum_{1\le i<j\le k}\binom{k+r-1-(n_i+1)-(n_j+1)}{k-1}-\cdots+(-1)^k\binom{k+r-1-\sum_{i=1}^{k}(n_i+1)}{k-1}</script><p>证明 &amp; 解释：   对于每一类元素如果没有选取次数限制,则总方案数为 $\binom{k+r-1}{k-1}$,考虑使用枚举超出限制的元素的种类数 $k$,使其选择 $n_i+1$个,剩下的机会随机分给剩下的元素即可,依照容斥原理进行容斥即可算出答案.</p>
+<h2 id="概率和数学期望"><a href="#概率和数学期望" class="headerlink" title="概率和数学期望"></a>概率和数学期望</h2><h3 id="概率"><a href="#概率" class="headerlink" title="概率"></a>概率</h3><h4 id="定义-4"><a href="#定义-4" class="headerlink" title="定义"></a>定义</h4><p>某个事件 $A$ 发生的可能性的大小,称之为 $A$ 的概率,记作 $P(A)$.如果一件事的所有可能情况有 $n$种,事件 $A$ 涵盖了其中的 $m$ 种,那么 $A$ 的概率为 $\frac{n}{m}$.</p>
+<h4 id="性质-2"><a href="#性质-2" class="headerlink" title="性质"></a>性质</h4><p>记随机事件 $A$ 和 $B$.</p>
+<ul>
+<li>若 $A\cap B=\varnothing$,即 $A$ 和 $B$ 无交集,则 $P(A 或 B 发生)=P(A)+P(B)$.</li>
+<li>若 $A\cap B\not =\varnothing$,$P(A 或 B 发生)=P(A)+P(B)-P(A 和 B 同时发生)$.</li>
+<li>若 $A$ 和 $B$ 在互不干扰的事件中,则 $P(A 和 B 同时发生) = P(A)\times P(B)$.</li>
+</ul>
+<h4 id="例题-1"><a href="#例题-1" class="headerlink" title="例题"></a>例题</h4><ul>
+<li><p>[LG P5750](<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P5750),直接概率">https://www.luogu.com.cn/problem/P5750),直接概率</a> DP 即可.</p>
+</li>
+<li><p>[BZOJ 5091](Problem/BZOJ5091摘苹果.md),由于每一棵树只能算一次贡献,所以可以将期望转成概率的形式求解.</p>
+</li>
+</ul>
+<h3 id="期望"><a href="#期望" class="headerlink" title="期望"></a>期望</h3><h4 id="定义-5"><a href="#定义-5" class="headerlink" title="定义"></a>定义</h4><p>记随机事件 $A$,若 $A$ 有多种结果,对每一种结果都有一个权值 $w$,每一种结果的概率和权值的乘积之和称作 $A$ 的期望,记作 $E(A)$.</p>
+<script type="math/tex; mode=display">
+E(A)=\sum_{p\in A}P(p)\times w_p</script><h4 id="性质-3"><a href="#性质-3" class="headerlink" title="性质"></a>性质</h4><p>期望是线性函数,若 $c$ 和 $d$ 为常数,$X$ 和 $Y$ 为随机事件,则有：</p>
+<script type="math/tex; mode=display">
+E(cX)+E(dY)=cE(x)+dE(Y)</script><h4 id="例题-2"><a href="#例题-2" class="headerlink" title="例题"></a>例题</h4><ul>
+<li>[BZOJ 4832](Problem/BZOJ4832.md)</li>
+<li>[LG P1850](<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1850">https://www.luogu.com.cn/problem/P1850</a>)</li>
+</ul>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%B0%E5%AD%A6/">#数学</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/02/27/%E5%BC%80%E7%AB%AF/" title="开端">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">开端</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var title = subtitle.title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script>var a=document.getElementsByTagName("h1");for(var i=0;i<a.length;++i)if(a[i].parentNode.className.indexOf("markdown-body")>-1)a[i].style.borderStyle="none",a[i].style.textAlign="center";</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script> -->
+
+
+</body>
+</html>
