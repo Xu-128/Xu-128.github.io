@@ -24,7 +24,7 @@
 <meta property="og:description" content="欧拉函数定义$\varphi(x)$ 表示 $[1,x-1]$ 中与 $x$ 互质的数的个数. 性质 若 $p$ 为质数,则 $\varphi(p^m)&#x3D;p^{n-1}(p-1)$ 若 $a|x$,则 $\varphi(ax)&#x3D;a\varphi(x)$ 若 $a\perp b$,则 $\varphi(ab)&#x3D;\varphi(a)\varphi(b)$  计算设正整数 $n&#x3D;\sum_ip_i^{k">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-30T04:03:58.000Z">
-<meta property="article:modified_time" content="2022-05-01T13:52:35.646Z">
+<meta property="article:modified_time" content="2022-05-01T14:03:39.207Z">
 <meta property="article:author" content="__Xu128">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary_large_image">
@@ -203,7 +203,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          8.4k 字
+          8.7k 字
         
       </span>
     
@@ -214,7 +214,7 @@
         
         
         
-          141 分钟
+          145 分钟
         
       </span>
     
@@ -294,7 +294,7 @@ a^{p-2}\equiv a^{-1}\ (mod\ p)\\</script><h2 id="狄利克雷卷积"><a href="#�
 <p>证明略.</p>
 <h3 id="狄利克雷卷积的性质"><a href="#狄利克雷卷积的性质" class="headerlink" title="狄利克雷卷积的性质"></a>狄利克雷卷积的性质</h3><p>满足交换律,结合律和分配律.</p>
 <h2 id="欧拉-莫比乌斯反演"><a href="#欧拉-莫比乌斯反演" class="headerlink" title="欧拉/莫比乌斯反演"></a>欧拉/莫比乌斯反演</h2><h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><blockquote>
-<p>$\sum_{i=1}^n\sum_{j=1}^m[gcd(i, j)=1]$</p>
+<p>$\sum_{i=1}^n\sum_{j=1}^m[(i, j)=1]$\<br>其中 $(a,~b)$ 表示 $a$ 和 $b$ 的最大公因数。</p>
 </blockquote>
 <script type="math/tex; mode=display">
 \begin{aligned}
@@ -306,7 +306,7 @@ a^{p-2}\equiv a^{-1}\ (mod\ p)\\</script><h2 id="狄利克雷卷积"><a href="#�
 &=\sum_{d=1}^{\min(n, m)}\mu(d)\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}1\\
 &=\sum_{d=1}^{\min(n, m)}\mu(d)\lfloor\frac{n}{d}\rfloor\lfloor\frac{m}{d}\rfloor
 \end{aligned}</script><blockquote>
-<p>$\sum_{i=1}^n\sum_{j=1}^mgcd(i, j)$</p>
+<p>$\sum_{i=1}^n\sum_{j=1}^m(i, j)$</p>
 </blockquote>
 <script type="math/tex; mode=display">
 \begin{aligned}
@@ -316,18 +316,19 @@ a^{p-2}\equiv a^{-1}\ (mod\ p)\\</script><h2 id="狄利克雷卷积"><a href="#�
 &=\sum_{d=1}^{\min(n, m)}\varphi(d)\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}\\
 &=\sum_{d=1}^{\min(n, m)}\varphi(d)\lfloor\frac{n}{d}\rfloor\lfloor\frac{m}{d}\rfloor
 \end{aligned}</script><blockquote>
-<p>$\sum_{i=1}^n\sum_{j=1}^mlcm(i, j)$</p>
+<p>$\sum_{i=1}^n\sum_{j=1}^m[i,~j]$\<br>其中 $[a,~b]$ 表示 $a$ 和 $b$ 的最小公倍数。</p>
 </blockquote>
 <script type="math/tex; mode=display">
 \begin{aligned}
 \sum_{i=1}^n\sum_{j=1}^mlcm(i, j)
-&=\sum_{i=1}^n\sum_{j=1}^m\frac{ij}{\gcd(i, j)}\\
-&=\sum_{i=1}^n\sum_{j=1}^m\sum_{d=1}^{gcd(i, j)}[d=\gcd(i, j)]\frac{ij}{d}\\
-&=\sum_{d=1}^{\min(n, m)}\sum_{i=1}^n\sum_{j=1}^m[\gcd(i, j)=d]\frac{ij}{d}\\
-&=\sum_{d=1}^{\min(n, m)}\frac{1}{d}\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}[\gcd(i, j)=1]ij\cdot d^2\\
-&=\sum_{d=1}^{\min(n, m)}d\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}[\gcd(i, j)==1]ij\\
+&=\sum_{i=1}^n\sum_{j=1}^m\frac{ij}{(i, j)}\\
+&=\sum_{i=1}^n\sum_{j=1}^m\sum_{d=1}^{gcd(i, j)}[d=(i, j)]\frac{ij}{d}\\
+&=\sum_{d=1}^{\min(n, m)}\sum_{i=1}^n\sum_{j=1}^m[(i, j)=d]\frac{ij}{d}\\
+&=\sum_{d=1}^{\min(n, m)}\frac{1}{d}\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}[(i, j)=1]ij\cdot d^2\\
+&=\sum_{d=1}^{\min(n, m)}d\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}[(i, j)=1]ij\\
 &=\sum_{d=1}^{\min(n, m)}d\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}\sum_{e|gcd(i, j)}\mu(e)ij\\
-&=\sum_{d=1}^{\min(n, m)}d\sum_{e=1}^{\min(\lfloor\frac{n}{d}\rfloor,\lfloor\frac{m}{d}\rfloor)}\mu(e)\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}ij[e|ij]\\
+&=\sum_{d=1}^{\min(n, m)}d\sum_{e=1}^{\min(\lfloor\frac{n}{d}\rfloor,\lfloor\frac{m}{d}\rfloor)}\mu(e)\sum_{ie=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{je=1}^{\lfloor\frac{m}{d}\rfloor}ie\times je\\
+&=\sum_{d=1}^{\min(n, m)}d\sum_{e=1}^{\min(\lfloor\frac{n}{d}\rfloor,\lfloor\frac{m}{d}\rfloor)}\mu(e)\sum_{ie=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{je=1}^{\lfloor\frac{m}{d}\rfloor}[e|(ie,~je)]ie\times je\\
 &=\sum_{d=1}^{\min(n, m)}d\sum_{e=1}^{\min(\lfloor\frac{n}{d}\rfloor,\lfloor\frac{m}{d}\rfloor)}\mu(e)\sum_{ie=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{je=1}^{\lfloor\frac{m}{d}\rfloor}ie\times je\\
 &=\sum_{d=1}^{\min(n, m)}d\sum_{e=1}^{\min(\lfloor\frac{n}{d}\rfloor,\lfloor\frac{m}{d}\rfloor)}\mu(e) \times e^2\sum_{ie=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{je=1}^{\lfloor\frac{m}{d}\rfloor}ij\\
 &=\sum_{d=1}^{\min(n, m)}d\sum_{e=1}^{\min(\lfloor\frac{n}{d}\rfloor,\lfloor\frac{m}{d}\rfloor)}\mu(e) \times e^2\sum_{i=1}^{\lfloor\frac{n}{de}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{de}\rfloor}ij\\
