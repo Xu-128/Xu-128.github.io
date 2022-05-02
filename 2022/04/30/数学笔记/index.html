@@ -24,7 +24,7 @@
 <meta property="og:description" content="欧拉函数定义$\varphi(x)$ 表示 $[1,x-1]$ 中与 $x$ 互质的数的个数. 性质 若 $p$ 为质数,则 $\varphi(p^m)&#x3D;p^{n-1}(p-1)$ 若 $a|x$,则 $\varphi(ax)&#x3D;a\varphi(x)$ 若 $a\perp b$,则 $\varphi(ab)&#x3D;\varphi(a)\varphi(b)$  计算设正整数 $n&#x3D;\sum_ip_i^{k">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-30T04:03:58.000Z">
-<meta property="article:modified_time" content="2022-05-01T14:03:39.207Z">
+<meta property="article:modified_time" content="2022-05-02T00:16:45.281Z">
 <meta property="article:author" content="__Xu128">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary_large_image">
@@ -203,7 +203,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          8.7k 字
+          8.5k 字
         
       </span>
     
@@ -214,7 +214,7 @@
         
         
         
-          145 分钟
+          142 分钟
         
       </span>
     
@@ -327,10 +327,9 @@ a^{p-2}\equiv a^{-1}\ (mod\ p)\\</script><h2 id="狄利克雷卷积"><a href="#�
 &=\sum_{d=1}^{\min(n, m)}\frac{1}{d}\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}[(i, j)=1]ij\cdot d^2\\
 &=\sum_{d=1}^{\min(n, m)}d\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}[(i, j)=1]ij\\
 &=\sum_{d=1}^{\min(n, m)}d\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}\sum_{e|gcd(i, j)}\mu(e)ij\\
-&=\sum_{d=1}^{\min(n, m)}d\sum_{e=1}^{\min(\lfloor\frac{n}{d}\rfloor,\lfloor\frac{m}{d}\rfloor)}\mu(e)\sum_{ie=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{je=1}^{\lfloor\frac{m}{d}\rfloor}ie\times je\\
-&=\sum_{d=1}^{\min(n, m)}d\sum_{e=1}^{\min(\lfloor\frac{n}{d}\rfloor,\lfloor\frac{m}{d}\rfloor)}\mu(e)\sum_{ie=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{je=1}^{\lfloor\frac{m}{d}\rfloor}[e|(ie,~je)]ie\times je\\
-&=\sum_{d=1}^{\min(n, m)}d\sum_{e=1}^{\min(\lfloor\frac{n}{d}\rfloor,\lfloor\frac{m}{d}\rfloor)}\mu(e)\sum_{ie=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{je=1}^{\lfloor\frac{m}{d}\rfloor}ie\times je\\
-&=\sum_{d=1}^{\min(n, m)}d\sum_{e=1}^{\min(\lfloor\frac{n}{d}\rfloor,\lfloor\frac{m}{d}\rfloor)}\mu(e) \times e^2\sum_{ie=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{je=1}^{\lfloor\frac{m}{d}\rfloor}ij\\
+&=\sum_{d=1}^{\min(n, m)}d\sum_{e=1}^{\min(\lfloor\frac{n}{d}\rfloor,\lfloor\frac{m}{d}\rfloor)}\mu(e)\sum_{i=1}^{\lfloor\frac{n}{de}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{de}\rfloor}[e|(ie,~je)]ie\times je\\
+&=\sum_{d=1}^{\min(n, m)}d\sum_{e=1}^{\min(\lfloor\frac{n}{d}\rfloor,\lfloor\frac{m}{d}\rfloor)}\mu(e)\sum_{i=1}^{\lfloor\frac{n}{de}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{de}\rfloor}ie\times je\\
+&=\sum_{d=1}^{\min(n, m)}d\sum_{e=1}^{\min(\lfloor\frac{n}{d}\rfloor,\lfloor\frac{m}{d}\rfloor)}\mu(e) \times e^2\sum_{i=1}^{\lfloor\frac{n}{de}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{de}\rfloor}ij\\
 &=\sum_{d=1}^{\min(n, m)}d\sum_{e=1}^{\min(\lfloor\frac{n}{d}\rfloor,\lfloor\frac{m}{d}\rfloor)}\mu(e) \times e^2\sum_{i=1}^{\lfloor\frac{n}{de}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{de}\rfloor}ij\\
 \end{aligned}</script><h2 id="组合数学"><a href="#组合数学" class="headerlink" title="组合数学"></a>组合数学</h2><h3 id="一些组合恒等式"><a href="#一些组合恒等式" class="headerlink" title="一些组合恒等式"></a>一些组合恒等式</h3><hr>
 <p>以下恒等式**基本**都有组合意义</p>
