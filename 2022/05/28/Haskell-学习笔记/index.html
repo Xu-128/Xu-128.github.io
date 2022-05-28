@@ -16,21 +16,22 @@
   <meta name="author" content="__Xu128">
   <meta name="keywords" content="">
   
-    <meta name="description" content="写个暴力破解一下？不过可能会 404">
+    <meta name="description" content="Haskell 学习笔记GHIC 的基础指令 在终端输入 &#96;&#96;&#96;ghic&#96;&#96;&#96; 进入。 &#96;&#96;&#96;:l PATH&#96;&#96;&#96; 加载 Haskell 文件。 &#96;&#96;&#96;:t NAME&#96;&#96;&#96; 显示一个函数或变量的类型。  类型和函数基本类型 &#96;&#96;&#96;Int&#96;&#96;&#96; 普通整数类 &#96;&#96;&#96;Word&#96;&#96;&#96; 无符号整数类 &#96;&#96;&#96;Integer&#96;&#96;&#96; 无上限高精度整数类 &#96;&#96;&#96;Float&#96;&#96;&#96; 单精度浮点数类 &#96;&#96;&#96;Double&#96;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2021-2022年-集训总结">
-<meta property="og:url" content="http://example.com/2022/05/22/2021-2022%E5%B9%B4-%E9%9B%86%E8%AE%AD%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:title" content="Haskell 学习笔记">
+<meta property="og:url" content="http://example.com/2022/05/28/Haskell-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="__Xu128 &#39;s Blog">
-<meta property="og:description" content="写个暴力破解一下？不过可能会 404">
+<meta property="og:description" content="Haskell 学习笔记GHIC 的基础指令 在终端输入 &#96;&#96;&#96;ghic&#96;&#96;&#96; 进入。 &#96;&#96;&#96;:l PATH&#96;&#96;&#96; 加载 Haskell 文件。 &#96;&#96;&#96;:t NAME&#96;&#96;&#96; 显示一个函数或变量的类型。  类型和函数基本类型 &#96;&#96;&#96;Int&#96;&#96;&#96; 普通整数类 &#96;&#96;&#96;Word&#96;&#96;&#96; 无符号整数类 &#96;&#96;&#96;Integer&#96;&#96;&#96; 无上限高精度整数类 &#96;&#96;&#96;Float&#96;&#96;&#96; 单精度浮点数类 &#96;&#96;&#96;Double&#96;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-05-22T08:47:18.000Z">
-<meta property="article:modified_time" content="2022-05-28T02:46:26.055Z">
+<meta property="article:published_time" content="2022-05-28T06:59:45.000Z">
+<meta property="article:modified_time" content="2022-05-28T08:39:21.961Z">
 <meta property="article:author" content="__Xu128">
-<meta property="article:tag" content="杂谈">
+<meta property="article:tag" content="Haskell">
+<meta property="article:tag" content="语言学习">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>2021-2022年-集训总结 - __Xu128 &#39;s Blog</title>
+  <title>Haskell 学习笔记 - __Xu128 &#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -191,8 +192,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-05-22 16:47" pubdate>
-          2022年5月22日 下午
+        <time datetime="2022-05-28 14:59" pubdate>
+          2022年5月28日 下午
         </time>
       </span>
     
@@ -203,7 +204,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          665 字
+          1.4k 字
         
       </span>
     
@@ -214,7 +215,7 @@
         
         
         
-          12 分钟
+          23 分钟
         
       </span>
     
@@ -252,22 +253,42 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">2021-2022年-集训总结</h1>
+            <h1 style="display: none">Haskell 学习笔记</h1>
             
             <div class="markdown-body">
               
-              <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Wrong Answer" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="e3b4eecf0f20c36d8ba450efb34da6c948a2a9dc3c8c5d7e0b20ab06cd748a89">89e7832c1051f7a3ce3cb672eafab33cf451fe8c691dd1e6a356f8488e5add7a4dae218c9a90f693275f7d55a8a42a358c78353fa415ef8550906f502bc985cf819325b85912244a3eeadcd1fdf1029ae2ea777100069d491d715591730385b6553fd6247e0705f462fc9874748967ad92d32cadce9af05c915a4a5a4287055c2e51aaf3d49b5e02a0642ed058574a429113004431944aa729020ed637d3582ecfc311311aca7be892b34449d12c8bb08d7ee8053ef493bcaefd958ad73df074282c4ed46f743d4c9944fdfeaf3eef63b614a88dfd43c902afda5f1680228ecb8dccac5b6cbe277640f4757ce2321169be972447e3396f6e07ab8b37b0dc2918f75a4f954d15a33cdc74b913c785e5aecc8fa3c957f127b19b55f959e84794fe28853c0969d3cb6023f71f9279a87a1a933d23c89eef23265c43c6f2ab331cd7f07c6e16da5e68e5ed25a9c3678b6b1c57906e3139318bbe6d2bde635f615b38f15acce93646c728d7c1033037be71b33a72c2a29b3753588b67e39f6b512f42bb7b87be52634d5b90b67973c343c57c81b49e4eaf526eeeb2d59b02f3045e5004d85a2a6e4253db0cbe13a6605c3b25f53aad90303032196819f07c9805ab7183763ea28d805a8d736d00237478156a51555ac63a5c7b544f6eaec4d24ab75f2802b62431e349b50db3b9447805d722a998967a81cdae432148926d5137b592e01faad03a2b61c4d664866646d1cc8b69f5b86e9fafa10099d4539ffa6aa5b11d6eb1b868ee65fb3ce6f892a5f9a7ba6a768fcbd4ace4f521bd7a1f3f4841f5f5973e44eac2ffa26d7a56b3c5b3fb435cb48074728687a316a27229cb1a56af8f05db6cd064e4b16b5b1f168a3a60e9abb4fae1e2ca7dcb18aa0f48f514a41dc4d59b5ca2e28f4bfb8bdb2dd85eca1e1dc495cea8b2d0aaa32a44a02670d8db6164dd68faaee8b6efc768e8d75bb60913fdb79ffc4b09efe0f10305558343e145be7c969af61ea8625279e4e834103934f35ecdd9b8b949a593abc0dc2745bda67338224188f8c8431a11ae1f7722ff2467b581db47f8367c1db38a95796083209cbf27968895054cfb0d3a224331c80a53ce3c16f7db2ce4e543cc1b85e731fe7e440d24f8f2cc6e46a119a4b75c3a4f484648c5d835d78cc1ac0a183e645f1d59df9f80dd1c2e5447457ebe7aad0009b632bb5d23ac7c63dd5fbef06afef2ff716c579b3aeabfcc7b1322a90989e08a44c001f16edb420c2f0a25f8e9dbbe68d87c8680ba0e3f95a426a632e14ae1c41d78c2fd5c074fac86867e509ea62c54f2c6c3c88f4d108d7729e8e51cc758225aea1e600ec9235efc964238031e87c22cbafbc82c03537412c477a44b63304000c49c745e8dbbe0551f67b800c58237ded949d49fedd42578d87c4cb93f725fb34d9dcb331e476dd2f6c6544d46e7f2896ae5816b8e3aa7c77c27797a6486066e37a77f61f4c41e076cd584047dc605f4e03682c748934df546cb44fa8aabbdfbadf7acdb6c4543444cc6fbf005749fb7c491fb95725a566e9c4e448d9fe2cf24a3b9330a4c1eab9b4e43a4c3001af3d004fec93759d82eb16eecdaf006d03f9511fccf309ed8960cbba3a9586bc70db30c187a0981488bf282b14a9bb57aff9b29d799ea7354d23f49f4383bd93f1edfdf94b2f8a8818de1200422d7fb3b5766b86dc52dd50090faf83208c269ef932df23c0220cc6e08d7be1b4bd4768777dbc808cc6983b088bf2e71a415873b801e26ff876b4146ac6a42bf089c92f0a533285d2b1710c27ce2530f227675534e26044d0bd6a123ba36ab2bb8be17aa05efb7f59df10dce540aa6beba73a83aa62db96db1261499b8dcd4d150fcd51a8ed87a43f1fa96a630f108bb46b18cf524f22d4136f24165201a087b86f55dc5557bd356116a2a1ea3055b8f2836d4cea49df10ccd76e66d18c99e78cde8f2be191f7770daf4ddf2496e07c5ba2d068398c378497fae06d4cc28df871b0df4cd06527f827e349f324312439131cd2e965189755c56860c45054d35c13d3a5c7952573701ef3cd52b4bb55adaa31059a32fa6c6e28c95ab456f7898c02635176c0ebf4d5674824ff7916b2395b43d87949142e5de57dd01a672a812898b6f441d7809ed4ad231b91e91797bc78899fd0d1f667208c2f79874ad4c3f14d4b7bc5487ff07297467ec434d16d4d0e2dd93738545102b2f5d0982c999195e415ad94ab297c675df1d98cb1c34dffaff15a9c15a11af1ffff29439da246458388d27acd9d45bcd74124a21b5abddd64ee72fd04ffd66d7e96dd791add7ea9ebb03d96854ffe0032156c5be4c0c809b09abe9dd70586f45d2771c951d21e757516bebd2b8b327efdf1e7c6c83b08ac87b5c8eee18b67cc36d07b58ccacba33696a03b7af7006514708f86464eadf2e123bf1e05dbdf67f8cfcbbc2031612917860559e393bebc0709db44837b70282f0d4e6459ccb033548c03fd08180f76cab1064d5a92d0550e4d37323df3dfc13466a9c47e34aa98ffaa5852eb3912373550c779075382233f5f88835eedbda2a3f1f2e6f49cd6021f1655ac64b36f7559b8ea1e0694cf086bc805a7d0149f8beaf57f0639c8a97502a79ee8cbdba4cadfc5e86ed639d80433f70f975af6cea0afc2b11752d598efe919a2385db21fa3c33c8b081f4e72cefc1213cff34dca27010870c7b429e3ee12fcf616060cc61bbb6fb6dcb862493b5c4cc586b21aafd9adda7857d6053e492eb5fd95a76f3ea51d799e7a0ea2033c25ee415ee814ef5c314ccfcffd85bc98aee429ae8a38102b0e03ffcf5c1634233d0531ae46b2ae377d8b5a4c73f6ab484c9ef5d061e41b89d7b34c8064fafbe5cd8d52d32d43f5db4633e00e530ad178e5590b349172274c901ff83205c5b3358690ce9000e6251db19a6507a26972b560ae573b09ea8a8b9f7212549835c6ed330830346125e0a194ea7f3dfc77ebc3b29ece99c349104e82c71f23950538457128a2462ed499b1f7a6a1c0bb53fe79f8153ec207f99728f1bc41d57d1f02abfabab001379188da3292866b90dd8b725ea65e06fb07740a16853dd6914db18a7fa19c951c81dea726c92ad57027e0bb05aeff4317694ad76fa12e2458b02d4dc400ee28df856b02343b391bbc2114460b6bada47ca1e29c9b5dba372406e5731c1a71bf63a6801ebac3291375dc59ac1f0b79e0ebd38ada32794bbae21a2fa8b634ec40f3bd45cc174d28ed8bf2bd1552556dcf9b7a3e65fe4d1f900e6addecbdcf4633e262c0ae4be3b8fa9e985cfa6c48676135a9fd7e6ae60876b481eabcee212d6035630d472af88ee3ec9fb7e77a87b76cf99e0dac054bf00c4d8951e964b3c5bee9dbf5d15e96205e413a96ae3846f5f90e342d4cda284b76a06ca0186ac57f5d31a2b2e3b4cc559fc006fe9d3cc526f6aa354491a427f5a8d79bc73aa1a0e321b1d3540685e84191212fbfc6dd4ee4777f9e21d26e91cea66b7b323eeb6220212253441f6682e73d25a89a2760942fe1a2033c4d3ff133c4676c36ccb3efc8edc108fe185a263185628e7736fa6a0cd07e25dcaa8237122c1ebda7159f12273ec1f9036ce6fde3dde777909a956d7487e7cd84c1450700dc46df1a7d4e82d9631de3902764798a2c1dbf5751b4aab82551277f07c9653c0d3d3d724378a7ade0fae6f8f95f9dbd5aad2c35c8decc660e9448620eb036a19d1eccddd6a029965e588a644bec7a58047ef22857b58f22b3ce2082e766982444f0a001f4a99c178a159191af8899a5d31afa0e168899d2fb8c6b085a6ad1f80b0f1d6ce611d1bf67bc1bd54900c3b95b7f5eb3404897f399a02af91809c2fa1704ca2d7be1e4a2483efc21d422912a930c4587382005f727b28c574f41bf78699b34ede4709ebececcd9f912b0641afcf47ef42dd6cd7023f2dc1c75d1698528db002c9e3a44b5a5836c84ec60fd0ddf204627b5e29f19515027b3b17c89c85b73986ed801673859a35608e71b498f145fe99e84156e0ed4ecd3f3776f0761146e7f9b50e6f2e77db391ab5f54b388b6ccdd3232dcad5d38c4f2143151bde9cf0c6c2469b6edd410f2015e46a5dced82d2a3f02d679b26ada8598e458e5314fb38a58e7d31f8320e9eae2ceae99de1f392cf0b89f9d823b9693ed57013a134e557e5ad096268dbff156f3baf7c04bc18f817e056ce45bf1b09d84688a4176aef183c33c28ff76904b1fbf912efd41be6c47fa351a488c4896bddabc80a1f649aad41017778b2f8abc2aea12b921e3701018b85f0e048025a38e2f403654eeba66d6b6acdc917bcac3cf1dd4f676c485ee06ba9c8c1cf774c132d38f65cc87559b492e0aa76413bffc73f6b7fbb6a394314bdbdf12220ea867b343ba0f5fa0e5486b782608698ed5248eff06ae357f79a39e4652d3b6899cd77c36d00033a637f13ca310a8090118b9c4bf6789ceebd0a3441497327ba13bafe92d406a857577565935938823618c800e0032349a9479ceae7cc45709aad7db4420a6000a0e474ff9d663917d79d451959f687e701a3cd17e6a28932024f1a7f1704da8192af8dc054d43b47db1ddfe7d181a4a42c1a9b078b074150cb1d2c24c40b73c5c2dd925e086a286ea0297877c06dd852e2f9138c87c1734c87eba8a81cbe7e77c7cc892439f85d310573a4d00f8b955401f541cc40cdb8734e14e31bbda14e1dc2f37ac6d953e3efde684c7db2eaa61dd83956e33990b04838d21483f4ca267ac824122c335175c88576ee8a265a2d5ffc2d0633a96bb6cfd502ac7416b67438671959bc4b8dd32451d6578a6233d1ab15d2fef60a402d1895f022e2a2a8d20b96f3e43b6bea0de64d01cbcd732b9b7f33fa91b8821da62b3e64c6af4bfac1118e1948cbe80a34a8b10d5da56dd1ceb68545b7349cc34764f176fd71cfa53a29375a3f9ca99142d9badd22a146755a1a6d10e1cb866da7625935613c246c9e136075c9aac62254faa3d4bc771e4468a1eb81c8d0</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">点我输密码</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+              <h1 id="Haskell-学习笔记"><a href="#Haskell-学习笔记" class="headerlink" title="Haskell 学习笔记"></a>Haskell 学习笔记</h1><h2 id="GHIC-的基础指令"><a href="#GHIC-的基础指令" class="headerlink" title="GHIC 的基础指令"></a>GHIC 的基础指令</h2><ul>
+<li>在终端输入 ```ghic``` 进入。</li>
+<li>```:l PATH``` 加载 Haskell 文件。</li>
+<li>```:t NAME``` 显示一个函数或变量的类型。</li>
+</ul>
+<h2 id="类型和函数"><a href="#类型和函数" class="headerlink" title="类型和函数"></a>类型和函数</h2><h3 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h3><ul>
+<li>```Int``` 普通整数类</li>
+<li>```Word``` 无符号整数类</li>
+<li>```Integer``` 无上限高精度整数类</li>
+<li>```Float``` 单精度浮点数类</li>
+<li>```Double``` 双精度浮点数类</li>
+<li>```Rational``` 有理数类，其中 ```%``` 代表分数线</li>
+<li>```Char```，使用单引号包裹的变量</li>
+<li>```字符串类型```，即使用方括号或者双引号包裹的变量</li>
+<li>```元组```，使用圆括号包裹的变量，其内部可以塞入最多 $62$ 个任意类型变量，对于二元元组来说 ```fst NAME``` 表示其中的第一个元素，```snd NAME``` 表示第二个元素</li>
+</ul>
+<h3 id="函数类型"><a href="#函数类型" class="headerlink" title="函数类型"></a>函数类型</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>函数可以认为是一个类型到类型的映射，比如<br><figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs llvm">&gt; let <span class="hljs-keyword">add</span><span class="hljs-number">1</span>(<span class="hljs-keyword">x</span><span class="hljs-punctuation">,</span> y) <span class="hljs-operator">=</span> (<span class="hljs-keyword">x</span> + y) :: Int<br></code></pre></td></tr></table></figure><br>这样就定义了一个 ```add1``` 函数，它接收一个二元元组，返回元组内两个元素的和。</p>
+<figure class="highlight node-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs node-repl"><span class="hljs-meta">&gt;</span> <span class="language-javascript">add1 (<span class="hljs-number">2</span>, <span class="hljs-number">3</span>)</span><br>5<br></code></pre></td></tr></table></figure>
+<h4 id="柯里化和非柯里化"><a href="#柯里化和非柯里化" class="headerlink" title="柯里化和非柯里化"></a>柯里化和非柯里化</h4><p>柯里化函数，就是将函数所需要的类型一个一个传进去，如果数量不够，则返回需要下一个参数的函数，而非柯里化函数需要一次性传输完毕所有的参数才能刚工作。</p>
+<p>思考 ```add1``` 函数所做的事情，它接收一个元组，然后返回它们的和，这就是一个非柯里化函数。</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs clean">&gt; :t add1<br>add1 :: (<span class="hljs-built_in">Int</span>, <span class="hljs-built_in">Int</span>) -&gt; <span class="hljs-built_in">Int</span><br></code></pre></td></tr></table></figure>
+<p>对于柯里化函数我们可以这么定义<br><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs clean">&gt; <span class="hljs-keyword">let</span> add2 x y = x + y :: <span class="hljs-built_in">Int</span><br>&gt; :t add2<br>add2 :: <span class="hljs-built_in">Int</span> -&gt; <span class="hljs-built_in">Int</span> -&gt; <span class="hljs-built_in">Int</span><br></code></pre></td></tr></table></figure></p>
+<p>如果我们对于一个 ```add2``` 只传入一个函数，则它会返回一个只需要一个函数的函数。</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs clean">&gt; :t add2 <span class="hljs-number">1</span><br>add2 :: <span class="hljs-built_in">Int</span> -&gt; <span class="hljs-built_in">Int</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>函数对应着数学语言的 $f(x, y)</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs add1```"><br>#### 多态函数<br><br>##### 定义<br><br>一个函数的参数可以是任何一个类型的值，那么这个函数就被称为多态函数，```Haskell``` 里的任意一个类型可以用一个以小写字母开头的字符串表示，它被称为类型变量。类型变量是多态的，也就是在使用函数的时候它们可以被替换成其他任何类型（包括其他的多态类型）。<br><br>##### 例子<br><br>- ```length``` 返回一个列表里元素的个数<br>- ```head``` 返回一个列表里元素的第一个<br><br>#### 重载类型函数<br><br>##### 定义<br><br>当对于一个函数使用 ```:t```  的时候，可能会出现如下反馈<br><br></code></pre></td></tr></table></figure>
+<p>NAME :: Num a =&gt; a<br><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey">其中 ```=&gt;``` 是一个类型类的限定符号，意思是说 ```NAME``` 有一个类型变量 ```a```，但是 ```a``` 必须是一个 ```Num``` 类型类。<br><br><br>##### 例子<br><br></code></pre></td></tr></table></figure></p>
+<blockquote>
+<p>:t 5<br>5 :: Num a =&gt; a<br>:t abs<br>abs :: Num a =&gt; a -&gt; a<br>```</p>
+</blockquote>
+<script>
+var a=document.getElementsByTagName("h1");for(var i=0;i<a.length;++i)if(a[i].parentNode.className.indexOf("markdown-body")>-1)document.getElementById("subtitle").title=a[i].innerHTML,a[i].parentNode.removeChild(a[i]);</script>
+
               
             </div>
             <hr/>
@@ -284,7 +305,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%9D%82%E8%B0%88/" class="category-chain-item">杂谈</a>
+  <a href="/categories/Haskell/" class="category-chain-item">Haskell</a>
   
   
 
@@ -299,7 +320,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%9D%82%E8%B0%88/">#杂谈</a>
+        <a href="/tags/Haskell/">#Haskell</a>
+      
+        <a href="/tags/%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">#语言学习</a>
       
     </div>
   
@@ -313,18 +336,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/05/28/Haskell-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Haskell 学习笔记">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Haskell 学习笔记</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/04/30/%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0/" title="数学笔记">
-                        <span class="hidden-mobile">数学笔记</span>
+                      <a href="/2022/05/22/2021-2022%E5%B9%B4-%E9%9B%86%E8%AE%AD%E6%80%BB%E7%BB%93/" title="2021-2022年-集训总结">
+                        <span class="hidden-mobile">2021-2022年-集训总结</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
