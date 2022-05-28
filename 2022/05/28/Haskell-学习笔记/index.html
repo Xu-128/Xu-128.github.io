@@ -16,15 +16,15 @@
   <meta name="author" content="__Xu128">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Haskell 学习笔记GHIC 的基础指令 在终端输入 &#96;&#96;&#96;ghic&#96;&#96;&#96; 进入。 &#96;&#96;&#96;:l PATH&#96;&#96;&#96; 加载 Haskell 文件。 &#96;&#96;&#96;:t NAME&#96;&#96;&#96; 显示一个函数或变量的类型。  类型和函数基本类型 &#96;&#96;&#96;Int&#96;&#96;&#96; 普通整数类 &#96;&#96;&#96;Word&#96;&#96;&#96; 无符号整数类 &#96;&#96;&#96;Integer&#96;&#96;&#96; 无上限高精度整数类 &#96;&#96;&#96;Float&#96;&#96;&#96; 单精度浮点数类 &#96;&#96;&#96;Double&#96;">
+    <meta name="description" content="Haskell 学习笔记GHIC 的基础指令 在终端输入 $ghic$ 进入。 $:l\ PATH$ 加载 Haskell 文件。 $:t\ NAME$ 显示一个函数或变量的类型。  类型和函数基本类型 $Int$ 普通整数类 $Word$ 无符号整数类 $Integer$ 无上限高精度整数类 $Float$ 单精度浮点数类 $Double$ 双精度浮点数类 $Rational$ 有理数类，其中">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Haskell 学习笔记">
 <meta property="og:url" content="http://example.com/2022/05/28/Haskell-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="__Xu128 &#39;s Blog">
-<meta property="og:description" content="Haskell 学习笔记GHIC 的基础指令 在终端输入 &#96;&#96;&#96;ghic&#96;&#96;&#96; 进入。 &#96;&#96;&#96;:l PATH&#96;&#96;&#96; 加载 Haskell 文件。 &#96;&#96;&#96;:t NAME&#96;&#96;&#96; 显示一个函数或变量的类型。  类型和函数基本类型 &#96;&#96;&#96;Int&#96;&#96;&#96; 普通整数类 &#96;&#96;&#96;Word&#96;&#96;&#96; 无符号整数类 &#96;&#96;&#96;Integer&#96;&#96;&#96; 无上限高精度整数类 &#96;&#96;&#96;Float&#96;&#96;&#96; 单精度浮点数类 &#96;&#96;&#96;Double&#96;">
+<meta property="og:description" content="Haskell 学习笔记GHIC 的基础指令 在终端输入 $ghic$ 进入。 $:l\ PATH$ 加载 Haskell 文件。 $:t\ NAME$ 显示一个函数或变量的类型。  类型和函数基本类型 $Int$ 普通整数类 $Word$ 无符号整数类 $Integer$ 无上限高精度整数类 $Float$ 单精度浮点数类 $Double$ 双精度浮点数类 $Rational$ 有理数类，其中">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-05-28T06:59:45.000Z">
-<meta property="article:modified_time" content="2022-05-28T08:39:21.961Z">
+<meta property="article:modified_time" content="2022-05-28T09:01:58.735Z">
 <meta property="article:author" content="__Xu128">
 <meta property="article:tag" content="Haskell">
 <meta property="article:tag" content="语言学习">
@@ -204,7 +204,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k 字
+          1.3k 字
         
       </span>
     
@@ -215,7 +215,7 @@
         
         
         
-          23 分钟
+          22 分钟
         
       </span>
     
@@ -258,34 +258,39 @@
             <div class="markdown-body">
               
               <h1 id="Haskell-学习笔记"><a href="#Haskell-学习笔记" class="headerlink" title="Haskell 学习笔记"></a>Haskell 学习笔记</h1><h2 id="GHIC-的基础指令"><a href="#GHIC-的基础指令" class="headerlink" title="GHIC 的基础指令"></a>GHIC 的基础指令</h2><ul>
-<li>在终端输入 ```ghic``` 进入。</li>
-<li>```:l PATH``` 加载 Haskell 文件。</li>
-<li>```:t NAME``` 显示一个函数或变量的类型。</li>
+<li>在终端输入 $ghic$ 进入。</li>
+<li>$:l\ PATH$ 加载 Haskell 文件。</li>
+<li>$:t\ NAME$ 显示一个函数或变量的类型。</li>
 </ul>
 <h2 id="类型和函数"><a href="#类型和函数" class="headerlink" title="类型和函数"></a>类型和函数</h2><h3 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h3><ul>
-<li>```Int``` 普通整数类</li>
-<li>```Word``` 无符号整数类</li>
-<li>```Integer``` 无上限高精度整数类</li>
-<li>```Float``` 单精度浮点数类</li>
-<li>```Double``` 双精度浮点数类</li>
-<li>```Rational``` 有理数类，其中 ```%``` 代表分数线</li>
-<li>```Char```，使用单引号包裹的变量</li>
-<li>```字符串类型```，即使用方括号或者双引号包裹的变量</li>
-<li>```元组```，使用圆括号包裹的变量，其内部可以塞入最多 $62$ 个任意类型变量，对于二元元组来说 ```fst NAME``` 表示其中的第一个元素，```snd NAME``` 表示第二个元素</li>
+<li>$Int$ 普通整数类</li>
+<li>$Word$ 无符号整数类</li>
+<li>$Integer$ 无上限高精度整数类</li>
+<li>$Float$ 单精度浮点数类</li>
+<li>$Double$ 双精度浮点数类</li>
+<li>$Rational$ 有理数类，其中 $%$ 代表分数线</li>
+<li>$Char$，使用单引号包裹的变量</li>
+<li>$字符串类型$，即使用方括号或者双引号包裹的变量</li>
+<li>$元组$，使用圆括号包裹的变量，其内部可以塞入最多 $62$ 个任意类型变量，对于二元元组来说 $fst\ NAME$ 表示其中的第一个元素，$snd\ NAME$ 表示第二个元素</li>
 </ul>
-<h3 id="函数类型"><a href="#函数类型" class="headerlink" title="函数类型"></a>函数类型</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>函数可以认为是一个类型到类型的映射，比如<br><figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs llvm">&gt; let <span class="hljs-keyword">add</span><span class="hljs-number">1</span>(<span class="hljs-keyword">x</span><span class="hljs-punctuation">,</span> y) <span class="hljs-operator">=</span> (<span class="hljs-keyword">x</span> + y) :: Int<br></code></pre></td></tr></table></figure><br>这样就定义了一个 ```add1``` 函数，它接收一个二元元组，返回元组内两个元素的和。</p>
-<figure class="highlight node-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs node-repl"><span class="hljs-meta">&gt;</span> <span class="language-javascript">add1 (<span class="hljs-number">2</span>, <span class="hljs-number">3</span>)</span><br>5<br></code></pre></td></tr></table></figure>
+<h3 id="函数类型"><a href="#函数类型" class="headerlink" title="函数类型"></a>函数类型</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>函数可以认为是一个类型到类型的映射，比如<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plane">&gt; let add1(x, y) = (x + y) :: Int<br></code></pre></td></tr></table></figure><br>这样就定义了一个 $add1$ 函数，它接收一个二元元组，返回元组内两个元素的和。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plane">&gt; add1 (2, 3)<br>5<br></code></pre></td></tr></table></figure>
 <h4 id="柯里化和非柯里化"><a href="#柯里化和非柯里化" class="headerlink" title="柯里化和非柯里化"></a>柯里化和非柯里化</h4><p>柯里化函数，就是将函数所需要的类型一个一个传进去，如果数量不够，则返回需要下一个参数的函数，而非柯里化函数需要一次性传输完毕所有的参数才能刚工作。</p>
-<p>思考 ```add1``` 函数所做的事情，它接收一个元组，然后返回它们的和，这就是一个非柯里化函数。</p>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs clean">&gt; :t add1<br>add1 :: (<span class="hljs-built_in">Int</span>, <span class="hljs-built_in">Int</span>) -&gt; <span class="hljs-built_in">Int</span><br></code></pre></td></tr></table></figure>
-<p>对于柯里化函数我们可以这么定义<br><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs clean">&gt; <span class="hljs-keyword">let</span> add2 x y = x + y :: <span class="hljs-built_in">Int</span><br>&gt; :t add2<br>add2 :: <span class="hljs-built_in">Int</span> -&gt; <span class="hljs-built_in">Int</span> -&gt; <span class="hljs-built_in">Int</span><br></code></pre></td></tr></table></figure></p>
-<p>如果我们对于一个 ```add2``` 只传入一个函数，则它会返回一个只需要一个函数的函数。</p>
-<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs clean">&gt; :t add2 <span class="hljs-number">1</span><br>add2 :: <span class="hljs-built_in">Int</span> -&gt; <span class="hljs-built_in">Int</span><br></code></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><figcaption><span>函数对应着数学语言的 $f(x, y)</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs add1```"><br>#### 多态函数<br><br>##### 定义<br><br>一个函数的参数可以是任何一个类型的值，那么这个函数就被称为多态函数，```Haskell``` 里的任意一个类型可以用一个以小写字母开头的字符串表示，它被称为类型变量。类型变量是多态的，也就是在使用函数的时候它们可以被替换成其他任何类型（包括其他的多态类型）。<br><br>##### 例子<br><br>- ```length``` 返回一个列表里元素的个数<br>- ```head``` 返回一个列表里元素的第一个<br><br>#### 重载类型函数<br><br>##### 定义<br><br>当对于一个函数使用 ```:t```  的时候，可能会出现如下反馈<br><br></code></pre></td></tr></table></figure>
-<p>NAME :: Num a =&gt; a<br><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey">其中 ```=&gt;``` 是一个类型类的限定符号，意思是说 ```NAME``` 有一个类型变量 ```a```，但是 ```a``` 必须是一个 ```Num``` 类型类。<br><br><br>##### 例子<br><br></code></pre></td></tr></table></figure></p>
-<blockquote>
-<p>:t 5<br>5 :: Num a =&gt; a<br>:t abs<br>abs :: Num a =&gt; a -&gt; a<br>```</p>
-</blockquote>
+<p>思考 $add1$ 函数所做的事情，它接收一个元组，然后返回它们的和，这就是一个非柯里化函数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plane">&gt; :t add1<br>add1 :: (Int, Int) -&gt; Int<br></code></pre></td></tr></table></figure>
+<p>对于柯里化函数我们可以这么定义<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plane">&gt; let add2 x y = x + y :: Int<br>&gt; :t add2<br>add2 :: Int -&gt; Int -&gt; Int<br></code></pre></td></tr></table></figure></p>
+<p>如果我们对于一个 $add2$ 只传入一个函数，则它会返回一个只需要一个函数的函数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plane">&gt; :t add2 1<br>add2 :: Int -&gt; Int<br></code></pre></td></tr></table></figure>
+<p>$add1$ 函数对应着数学语言的 $f(x, y)=x+y$，而 add2 函数如果传入第一个参数 x，则它对应着数学语言的 $f(y)=x+y$，这符合了数学上没有多元函数的原则。</p>
+<h4 id="多态函数"><a href="#多态函数" class="headerlink" title="多态函数"></a>多态函数</h4><h5 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h5><p>一个函数的参数可以是任何一个类型的值，那么这个函数就被称为多态函数，$Haskell$ 里的任意一个类型可以用一个以小写字母开头的字符串表示，它被称为类型变量。类型变量是多态的，也就是在使用函数的时候它们可以被替换成其他任何类型（包括其他的多态类型）。</p>
+<h5 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h5><ul>
+<li>$length$ 返回一个列表里元素的个数</li>
+<li>$head$ 返回一个列表里元素的第一个</li>
+</ul>
+<h4 id="重载类型函数"><a href="#重载类型函数" class="headerlink" title="重载类型函数"></a>重载类型函数</h4><h5 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h5><p>当对于一个函数使用 $:t$  的时候，可能会出现如下反馈</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plane">NAME :: Num a =&gt; a<br></code></pre></td></tr></table></figure>
+<p>其中 $=&gt;$ 是一个类型类的限定符号，意思是说 $NAME$ 有一个类型变量 $a$，但是 $a$ 必须是一个 $Num$ 类型类。</p>
+<h5 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plane">&gt; :t 5<br>5 :: Num a =&gt; a<br>&gt; :t abs<br>abs :: Num a =&gt; a -&gt; a<br></code></pre></td></tr></table></figure>
 <script>
 var a=document.getElementsByTagName("h1");for(var i=0;i<a.length;++i)if(a[i].parentNode.className.indexOf("markdown-body")>-1)document.getElementById("subtitle").title=a[i].innerHTML,a[i].parentNode.removeChild(a[i]);</script>
 
